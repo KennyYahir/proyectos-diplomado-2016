@@ -1,0 +1,26 @@
+---
+title: "Clasificación de tumores a través de Redes neuronales y Árboles de decisión"
+author: 
+- "Méndez Ramírez Kenny Yahir"
+- "Vera Luna Maximiliano"
+date: "23 de Junio de 2016"
+output: pdf_document
+---
+
+## Resumen
+
+Mediante el uso de Redes neuronales y árboles de decisión sobre una base de datos que contiene información de mastografías se quiere determinar si una masa es un tumor maligno o benigno.
+
+## Introducción
+
+
+
+## Descripción
+
+## Desarrollo
+
+## Resultados
+
+## Conclusión
+
+## Referencias
