@@ -1,10 +1,11 @@
 ---
 title: "Clasificación de tumores a través de Redes neuronales y Árboles de decisión"
-author: 
+author:
 - "Méndez Ramírez Kenny Yahir"
 - "Vera Luna Maximiliano"
 date: "23 de Junio de 2016"
 output: pdf_document
+linkcolor: "blue"
 ---
 
 ## Resumen
@@ -13,11 +14,35 @@ Mediante el uso de Redes neuronales y árboles de decisión sobre una base de da
 
 ## Introducción
 
+### Árboles de decisión
 
+Este método es muy intuitivo y fácil de aplicar a problemas donde las variables son continuas o discretas, y aunque podría resultar mejor en las segundas la interpretación en principio es sencilla, es por eso que también se probó este algoritmo para la clasificación del tipo de tumores dado un conjunto de datos.
 
-## Descripción
+### Redes neuronales
+
+Por la naturaleza del problema que se planteará a continuación, nos hizo mucho sentido usar este algoritmo bajo la suposición que no existe una relación lineal entre las variables, específicamente entre nuestro objetivo y las variables/características que creemos la explican.
+
+## Descripción de la base de datos
+
+El conjunto de datos recaba información de una serie mamografías(una por persona) con el fin de poder construir un clasificador capaz de detectar si la masa detectada se trata de un tumor maligno o beigno. Esta base de datos originalmente fue obtenida a través The University of Wisconsin Hospitals.
+
+Fuente: https://archive.ics.uci.edu/ml/datasets/Breast+Cancer+Wisconsin+%28Original%29
+
+### Observaciones y variables
+
+* Un total de 683 observaciones.
+* 10 variables (9 explicativas y 1 objetivo)
+	-
+
+* Distribución de clases (tipo de tumor):
+
+	- Benigno: 444 (65%)
+	- Maligno: 239 (35%)
+	
 
 ## Desarrollo
+
+
 
 ## Resultados
 
