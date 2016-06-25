@@ -1,8 +1,0 @@
-Cosas que no dicen nada.
-
-
-## Titulo
-
-Un breve comentario.
-
-## Mas cosas
