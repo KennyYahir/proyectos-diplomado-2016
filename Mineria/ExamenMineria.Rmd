@@ -72,7 +72,7 @@ discre <- function(x, y){
 
 my_dist <- function(X, Y){ # X y Y son vectores
 	
-	diffs <- mapply(discre , X, Y)
+	diffs <- mapply(discre, X, Y)
 	
 	sum(diffs)
 	
