@@ -32,8 +32,18 @@ Fuente: https://archive.ics.uci.edu/ml/datasets/Breast+Cancer+Wisconsin+%28Origi
 
 * Un total de 683 observaciones.
 * 10 variables (9 explicativas y 1 objetivo)
-	-
-
+	1. Número de Observacion (Entero)
+	1. Espesor (1-10 / Entero)
+	2. Uniformidad de tamaño (1-10 / Entero)
+	3. Uniformidad de la forma (1-10 / Entero)
+	4. Adhesión margianl (1-10 / Entero)
+	5. Tamaño de célula epitelial (1-10 / Entero)
+	6. Núcleos desnudos (1-10 / Entero)
+	7. Cromatina Bland (1-10 / Entero)
+	8. Nucleolos normales (1-10 / Entero)
+	9. Mitosis (1-10 / Entero)
+	10. Clase (2 = Benigno, 4 = maligno / Entero)
+	
 * Distribución de clases (tipo de tumor):
 
 	- Benigno: 444 (65%)
@@ -42,10 +52,120 @@ Fuente: https://archive.ics.uci.edu/ml/datasets/Breast+Cancer+Wisconsin+%28Origi
 
 ## Desarrollo
 
+- El procesamiento para previo para la preparación de los datos solo fue omitir observaciones donde hubiese valores nulos u omisos. Después de eso nos enfocamos en tratar la variable clase(`tipo`) como una del tipo categórica, por lo que se hizo su casteo dentro del lenguaje de programación `R`. 
+
+- Se formó un conjunto de datos de entrenamiento(~70%) y un conjunto de prueba (~30%) de manera aleatoria.
+
+![ima1](Pant_1.png)
+
+- Establecimos el tipo de tumor "maligno" como la clase positiva ya que ésta es sobre la que tenemos mayor interés en obtener una buena precisión en su clasificación. Esto se debe a la creencia de que es mejor reducir el error de clasificar un tumor maligno como benigno (FALSO NEGATIVO).
+
+- Ambos algoritmos usaron el mismo modelo(se trabajaron todas las características).
+
+- Para el árbol de decisión se usó el criterio de entropía.
+
+- En la red neuronal se usa una capa oculta de un solo nodo.
 
 
 ## Resultados
 
+### Árbol de decisión
+
+- Se obtuvieron 3 variables con mayor importancia para el árbol
+
+```{r fig.width=6.0, fig.height=3.0,echo=FALSE , fig.align = 'center'}
+library(png)
+library(grid)
+
+img <- readPNG("Arbol.png")
+ grid.raster(img)
+```
+
+- Se construyó la matriz de confusión para el conjunto de datos de prueba
+
+```{r fig.width=6.0, fig.height=3.0,echo=FALSE , fig.align = 'center'}
+library(png)
+library(grid)
+
+img <- readPNG("Matriz_arbol.png")
+ grid.raster(img)
+```
+
+
+- ROC Plot
+
+```{r fig.width=6.0, fig.height=3.0,echo=FALSE , fig.align = 'center'}
+library(png)
+library(grid)
+
+img <- readPNG("ROC_Arboles.png")
+
+grid.raster(img)
+```
+
+Donde vemos que nuestro TPR es elevado que es lo que queríamos lograr.
+
+
+- Resumen de coeficientes:
+
+```{r fig.width=6.0, fig.height=3.0,echo=FALSE , fig.align = 'center'}
+library(png)
+library(grid)
+
+img <- readPNG("resultados_arbol.png")
+grid.raster(img)
+```
+
+### Red Neuronal
+
+- Se muestra la topología de la red usada:
+
+```{r fig.width=7.5, fig.height=3.0,echo=FALSE , fig.align = 'center'}
+library(png)
+library(grid)
+
+img <- readPNG("Red_Mamografia.png")
+ grid.raster(img)
+```
+
+- La matriz de confusión resultante:
+
+```{r fig.width=7.5, fig.height=3.0,echo=FALSE , fig.align = 'center'}
+library(png)
+library(grid)
+
+img <- readPNG("Matriz_red.png")
+ grid.raster(img)
+```
+
+- ROC Plot
+
+```{r fig.width=6.0, fig.height=3.0,echo=FALSE , fig.align = 'center'}
+library(png)
+library(grid)
+
+img <- readPNG("ROC_Red.png")
+grid.raster(img)
+```
+
+De igual manera esta gráfica ROC muestra un buen desempeño clasificando los tumores malignos.
+
+
+- Resumen de coeficientes:
+
+```{r fig.width=6.0, fig.height=3.0,echo=FALSE , fig.align = 'center'}
+library(png)
+library(grid)
+
+img <- readPNG("resultados_red.png")
+grid.raster(img)
+```
+
 ## Conclusión
 
+Los dos algoritmos usados para nuestra tarea de clasificación obtuvieron un buen desempeño en general, pero aún mejor, logramos reducir considerablemente el error mencionado al principio, que era clasificar un tumor maligno como benigno. Si nos enfocamos en esta observación, al usar la red neuronal pudimos clasificar todos lo tumores malignos correctamente, es decir, se obtuvo un TPR de 1. 
+
 ## Referencias
+
+Hastie, T., Tibshirani, R., Friedman, J.(2001) *The elements of Statistical Learning*. New York, NY, USA: Springer New York Inc.
+
