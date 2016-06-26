@@ -1,7 +1,6 @@
 ---
 title: "Examen Minería de Datos"
 author: "Kenny Yahir Méndez Ramírez"
-date: "19 de junio de 2016"
 output: pdf_document
 ---
 

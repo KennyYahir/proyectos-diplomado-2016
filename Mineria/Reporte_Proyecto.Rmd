@@ -3,7 +3,6 @@ title: "Clasificación de tumores a través de Redes neuronales y Árboles de de
 author:
 - "Méndez Ramírez Kenny Yahir"
 - "Vera Luna Maximiliano"
-date: "23 de Junio de 2016"
 output: pdf_document
 linkcolor: "blue"
 ---
@@ -32,7 +31,6 @@ Fuente: https://archive.ics.uci.edu/ml/datasets/Breast+Cancer+Wisconsin+%28Origi
 
 * Un total de 683 observaciones.
 * 10 variables (9 explicativas y 1 objetivo)
-	1. Número de Observacion (Entero)
 	1. Espesor (1-10 / Entero)
 	2. Uniformidad de tamaño (1-10 / Entero)
 	3. Uniformidad de la forma (1-10 / Entero)
@@ -169,3 +167,4 @@ Los dos algoritmos usados para nuestra tarea de clasificación obtuvieron un bue
 
 Hastie, T., Tibshirani, R., Friedman, J.(2001) *The elements of Statistical Learning*. New York, NY, USA: Springer New York Inc.
 
+Redes neuronales. Recuperado de https://www.coursera.org/learn/machine-learning/lecture/IPmzw/neurons-and-the-brain
