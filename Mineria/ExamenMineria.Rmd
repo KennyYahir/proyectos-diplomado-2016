@@ -5,6 +5,148 @@ date: "19 de junio de 2016"
 output: pdf_document
 ---
 
+```{r echo = FALSE}
+
+multiplot <- function(..., plotlist=NULL, file, cols=1, layout=NULL) {
+  library(grid)
+
+  # Make a list from the ... arguments and plotlist
+  plots <- c(list(...), plotlist)
+
+  numPlots = length(plots)
+
+  # If layout is NULL, then use 'cols' to determine layout
+  if (is.null(layout)) {
+    # Make the panel
+    # ncol: Number of columns of plots
+    # nrow: Number of rows needed, calculated from # of cols
+    layout <- matrix(seq(1, cols * ceiling(numPlots/cols)),
+                    ncol = cols, nrow = ceiling(numPlots/cols))
+  }
+
+ if (numPlots==1) {
+    print(plots[[1]])
+
+  } else {
+    # Set up the page
+    grid.newpage()
+    pushViewport(viewport(layout = grid.layout(nrow(layout), ncol(layout))))
+
+    # Make each plot, in the correct location
+    for (i in 1:numPlots) {
+      # Get the i,j matrix positions of the regions that contain this subplot
+      matchidx <- as.data.frame(which(layout == i, arr.ind = TRUE))
+
+      print(plots[[i]], vp = viewport(layout.pos.row = matchidx$row,
+                                      layout.pos.col = matchidx$col))
+    }
+  }
+}
+```
+
+## 1. Reglas de asociación
+	
+Se muestra el conjunto de datos original a trabajar: 
+
+```{r echo = FALSE, message = FALSE, warning = FALSE}
+library(arules)
+library(ggplot2)
+
+#setwd("C:/Users/Atycus/Documents/ExamenDM")
+
+temaBarras1 <- theme(panel.background = element_blank(), # Tema para la grafica
+					 panel.grid.major = element_line(colour = "gray", linetype = "solid"),
+					 panel.grid.major.x = element_blank(), # Es necesario para desactivar las mallas verticales
+					 axis.ticks = element_blank(),
+					 axis.text = element_text(size = 9),
+					 #axis.text.x = element_text(angle = 32),
+					 axis.title = element_text(size = 10, face = "bold"),
+					 axis.line.x = element_line(color = "black"),
+					 legend.text = element_text(size = 9),
+					 legend.title = element_text(size = 10),
+					 legend.key = element_blank(),
+					 title = element_text(face = "bold", size = 10)
+)
+
+data <-read.csv("Datos.csv", sep=",", header=T)
+
+data
+
+str(data)
+```
+
+*a) Preparación de los datos para encontrar patrones frecuentes
+
+Damos un vistazo a las variables "Temperature" y "Humidity"
+
+```{r echo = FALSE, message = FALSE, warning = FALSE}
+pt1 <- ggplot(data = data) + geom_histogram(aes(x = Temperature), binwidth = 0.5, fill = "orange")
+pt2 <- pt1 + xlab("Temperature") + ylab("Frecuencia") + ggtitle("Histograma") + temaBarras1
+h1 <- pt2
+
+pt1 <- ggplot(data = data) + geom_histogram(aes(x = Humidity), binwidth = 0.5, fill = "orange")
+pt2 <- pt1 + xlab("Humidity") + ylab("Frecuencia") + ggtitle("Histograma") + temaBarras1
+h2 <- pt2
+
+```
+
+```{r echo = FALSE, message = FALSE, fig.align = 'center', fig.height = 3.6}
+multiplot(h1, h2, cols = 2)
+```
+
++ Se categoriza "Temperature" en "Cold", "Cool", "Warn" y "Hot".
++ Dividimos "Humidity" en las cateogrías "Low", "Med" y "High".
+
+```{r echo = FALSE, message = FALSE}
+#Categorizar Temperature
+x<-cut(data$Temperature, 4, include.lowest=TRUE)
+#x
+#cut(data$Temperature, 4, include.lowest=TRUE, labels=c("Cold", "Cool", "Warm", "Hot"))
+
+data_bin<-data
+
+data_bin$Temperature<-cut(data$Temperature, 4, include.lowest=TRUE, labels=c("Cold", "Cool", "Warm", "Hot"))
+#data_bin
+
+#qplot(data_bin$Temperature)
+
+pt1 <- ggplot(data = data_bin) + geom_bar(aes(x = Temperature), fill = "lightseagreen")
+pt2 <- pt1 + xlab("Temperature") + ylab("Frecuencia") + temaBarras1
+g1 <- pt2
+
+#str(data_bin)
+
+#Categorizar Humidity
+y<-cut(data$Humidity, 3, include.lowest=TRUE)
+#y
+#cut(data$Humidity, 3, include.lowest=TRUE, labels=c("Low", "Med", "High"))
+
+data_bin$Humidity<-cut(data_bin$Humidity, 3, include.lowest=TRUE, labels=c("Low", "Med", "High"))
+#data_bin
+#str(data_bin)
+#qplot(data_bin$Humidity)
+
+pt1 <- ggplot(data = data_bin) + geom_bar(aes(x = Humidity), fill = "purple")
+pt2 <- pt1 + xlab("Humidity") + ylab("Frecuencia") + temaBarras1
+g2 <- pt2
+```
+
+```{r echo = FALSE, message = FALSE, fig.align = 'center', fig.height = 3.6}
+multiplot(g1, g2, cols = 2)
+
+data_bin$Wind<-as.factor(data_bin$Wind) # Se castea como factor
+```
+
+*b) Reglas con cobertura mínima de 0.25 y confianza mínima de 0.9 para un consecuente `Play = no` y `Play = yes`
+
+```{r, message = FALSE}
+rules <- apriori(data_bin, parameter = list(supp = 0.25, conf = 0.9), 
+                 appearance = list(rhs=c("Play=no", "Play=yes"), default="lhs"))
+inspect(rules)
+```
+
+Solo se encuentra una regla con las especificaciones requeridas y podemos decir que en todos los casos en los que el día esté "Templado(Overcast)" se tendrá `Play = yes`
+
 ## 3. Clasificador ingenuo de Bayes
 
 - ¿Cuál es su predicción para las siguientes tuplas?
@@ -80,6 +222,9 @@ my_dist <- function(X, Y){ # X y Y son vectores
 
 normaliza <- function(x){(x - min(x)) / (max(x) - min(x))} # normaliza un vector
 ```
+
+
+
 
 ## 4. K-nn
 
