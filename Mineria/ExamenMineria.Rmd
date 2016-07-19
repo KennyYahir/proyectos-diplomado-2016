@@ -5,6 +5,186 @@ date: "19 de junio de 2016"
 output: pdf_document
 ---
 
+```{r echo = FALSE}
+
+multiplot <- function(..., plotlist=NULL, file, cols=1, layout=NULL) {
+  library(grid)
+
+  # Make a list from the ... arguments and plotlist
+  plots <- c(list(...), plotlist)
+
+  numPlots = length(plots)
+
+  # If layout is NULL, then use 'cols' to determine layout
+  if (is.null(layout)) {
+    # Make the panel
+    # ncol: Number of columns of plots
+    # nrow: Number of rows needed, calculated from # of cols
+    layout <- matrix(seq(1, cols * ceiling(numPlots/cols)),
+                    ncol = cols, nrow = ceiling(numPlots/cols))
+  }
+
+ if (numPlots==1) {
+    print(plots[[1]])
+
+  } else {
+    # Set up the page
+    grid.newpage()
+    pushViewport(viewport(layout = grid.layout(nrow(layout), ncol(layout))))
+
+    # Make each plot, in the correct location
+    for (i in 1:numPlots) {
+      # Get the i,j matrix positions of the regions that contain this subplot
+      matchidx <- as.data.frame(which(layout == i, arr.ind = TRUE))
+
+      print(plots[[i]], vp = viewport(layout.pos.row = matchidx$row,
+                                      layout.pos.col = matchidx$col))
+    }
+  }
+}
+```
+
+## 1. Reglas de asociación
+	
+Se muestra el conjunto de datos original a trabajar: 
+
+```{r echo = FALSE, message = FALSE, warning = FALSE}
+library(arules)
+library(ggplot2)
+
+#setwd("C:/Users/Atycus/Documents/ExamenDM")
+
+temaBarras1 <- theme(panel.background = element_blank(), # Tema para la grafica
+					 panel.grid.major = element_line(colour = "gray", linetype = "solid"),
+					 panel.grid.major.x = element_blank(), # Es necesario para desactivar las mallas verticales
+					 axis.ticks = element_blank(),
+					 axis.text = element_text(size = 9),
+					 #axis.text.x = element_text(angle = 32),
+					 axis.title = element_text(size = 10, face = "bold"),
+					 axis.line.x = element_line(color = "black"),
+					 legend.text = element_text(size = 9),
+					 legend.title = element_text(size = 10),
+					 legend.key = element_blank(),
+					 title = element_text(face = "bold", size = 10)
+)
+
+data <-read.csv("Datos.csv", sep=",", header=T)
+
+data
+
+str(data)
+```
+
+- a) Preparación de los datos para encontrar patrones frecuentes
+
+Damos un vistazo a las variables "Temperature" y "Humidity"
+
+```{r echo = FALSE, message = FALSE, warning = FALSE}
+pt1 <- ggplot(data = data) + geom_histogram(aes(x = Temperature), binwidth = 0.5, fill = "orange")
+pt2 <- pt1 + xlab("Temperature") + ylab("Frecuencia") + ggtitle("Histograma") + temaBarras1
+h1 <- pt2
+
+pt1 <- ggplot(data = data) + geom_histogram(aes(x = Humidity), binwidth = 0.5, fill = "orange")
+pt2 <- pt1 + xlab("Humidity") + ylab("Frecuencia") + ggtitle("Histograma") + temaBarras1
+h2 <- pt2
+
+```
+
+```{r echo = FALSE, message = FALSE, fig.align = 'center', fig.height = 3.6}
+multiplot(h1, h2, cols = 2)
+```
+
++ Se categoriza "Temperature" en "Cold", "Cool", "Warn" y "Hot".
++ Dividimos "Humidity" en las cateogrías "Low", "Med" y "High".
+
+```{r echo = FALSE, message = FALSE}
+#Categorizar Temperature
+x<-cut(data$Temperature, 4, include.lowest=TRUE)
+#x
+#cut(data$Temperature, 4, include.lowest=TRUE, labels=c("Cold", "Cool", "Warm", "Hot"))
+
+data_bin<-data
+
+data_bin$Temperature<-cut(data$Temperature, 4, include.lowest=TRUE, labels=c("Cold", "Cool", "Warm", "Hot"))
+#data_bin
+
+#qplot(data_bin$Temperature)
+
+pt1 <- ggplot(data = data_bin) + geom_bar(aes(x = Temperature), fill = "lightseagreen")
+pt2 <- pt1 + xlab("Temperature") + ylab("Frecuencia") + temaBarras1
+g1 <- pt2
+
+#str(data_bin)
+
+#Categorizar Humidity
+y<-cut(data$Humidity, 3, include.lowest=TRUE)
+#y
+#cut(data$Humidity, 3, include.lowest=TRUE, labels=c("Low", "Med", "High"))
+
+data_bin$Humidity<-cut(data_bin$Humidity, 3, include.lowest=TRUE, labels=c("Low", "Med", "High"))
+#data_bin
+#str(data_bin)
+#qplot(data_bin$Humidity)
+
+pt1 <- ggplot(data = data_bin) + geom_bar(aes(x = Humidity), fill = "purple")
+pt2 <- pt1 + xlab("Humidity") + ylab("Frecuencia") + temaBarras1
+g2 <- pt2
+```
+
+```{r echo = FALSE, message = FALSE, fig.align = 'center', fig.height = 3.6}
+multiplot(g1, g2, cols = 2)
+
+data_bin$Wind<-as.factor(data_bin$Wind) # Se castea como factor
+```
+
+- b) Reglas con cobertura mínima de 0.25 y confianza mínima de 0.9 para un consecuente `Play = no` y `Play = yes`
+
+```{r echo = FALSE, message = FALSE, warning = FALSE, include = FALSE}
+rules <- apriori(data_bin, parameter = list(supp = 0.25, conf = 0.9), 
+                 appearance = list(rhs=c("Play=no", "Play=yes"), default="lhs"))
+```
+
+```{r}
+inspect(rules)
+```
+
+Solo se encuentra una regla con las especificaciones requeridas y podemos decir que en todos los casos en los que el día esté "Templado(Overcast)" se tendrá `Play = yes`
+
+## 2. Árboles de decisión
+
+- a) Elaborar un árbol de decisión donde el atributo objetivo es `Play`.
+
+Se usará el conjunto de datos anterior (`Temperature` y `Humidity` ya categorizadas).
+
+
+```{r message = FALSE, warning = FALSE, fig.align = 'center'}
+library(rpart)
+library(rpart.plot)
+
+modelo <- rpart(Play ~ ., data_bin, control = rpart.control(minsplit = 1), 
+			  parms = list(split = "gini"))
+
+
+rpart.plot(modelo) # Visaualización del árbol
+```
+
+- b) Utilice el modelo para dar una predicción sobre la siguiente tupla:
+
+```{r echo = FALSE, message = FALSE}
+data_pred <-read.csv("tupla_pred.csv", sep=",", header=T)
+data_pred
+
+data_pred$Wind <- factor(data_pred$Wind, levels = unique(data_bin$Wind))
+```
+
+Y se realiza la predicción:
+
+```{r echo = FALSE, message = FALSE}
+res <- predict(modelo, data_pred, type = "class")
+res
+```
+
+
 ## 3. Clasificador ingenuo de Bayes
 
 - ¿Cuál es su predicción para las siguientes tuplas?
@@ -63,6 +243,23 @@ temaScatter <- theme(panel.background = element_blank(), # Tema para la grafica
 			  title = element_text(face = "bold", size = 10)
 )
 
+sustVal <- function(x, ...){ # Recibimos x como un vector y '...' como pares
+	
+	lista <- list(...)
+	
+	for(elem in lista){
+		
+		oldVal <- elem[1]
+		newVal <- elem[2]
+		
+		pos <- x == oldVal
+		
+		x[pos] <- newVal
+	}
+	
+	x
+} # Devuelve un vector con valores sustituidos
+
 discre <- function(x, y){
 	if(is.factor(x))
 		return (x == y)
@@ -72,7 +269,7 @@ discre <- function(x, y){
 
 my_dist <- function(X, Y){ # X y Y son vectores
 	
-	diffs <- mapply(discre , X, Y)
+	diffs <- mapply(discre, X, Y)
 	
 	sum(diffs)
 	
@@ -80,6 +277,9 @@ my_dist <- function(X, Y){ # X y Y son vectores
 
 normaliza <- function(x){(x - min(x)) / (max(x) - min(x))} # normaliza un vector
 ```
+
+
+
 
 ## 4. K-nn
 
@@ -171,6 +371,68 @@ for(i in 1:nrow(grupo2)){
 Donde `val` representa la distancia al $K-ésimo$  vecino de cada clase hacia nuestra observación de interés. Al ser menor la distancia hacia el representante de la **clase 0** se dice que la tupla pertenece a esta clase.
 
 
+## 5. Back Propagation Neuronal Networks
+
+```{r echo = FALSE, message = FALSE}
+data <-read.csv("Datos2.csv", sep=",", header=T)
+data$a1 <- as.numeric(data$a1)
+data$a1 <- normaliza(data$a1)
+```
+
+- a) Proponga una topología de red neuronal, proponga pesos, tetas iniciales y tasa de aprendizaje.
+
+- b) Preprocesamiento para `a1`, `a2`, y `a3`
+
+```{r echo = FALSE, message = FALSE, warning = FALSE}
+library(knitr)
+library(neuralnet)
+
+data <-read.csv("Datos2.csv", sep=",", header=T)
+
+data<-data[1:8,]
+
+data$a1 <- as.numeric(data$a1)
+data$a1 <- normaliza(data$a1)
+
+data$a2 <- normaliza(data$a2)
+data$a3 <- normaliza(data$a3)
+
+kable(data)
+```
+
+- c) Escoja una de las tuplas, aliméntala a su red, retropropague el error e indique los nuevos pesos.
+
+```{r echo = TRUE, message = FALSE, warning = FALSE}
+set.seed(123) # Fijamos una semilla
+w <- matrix(runif(16, -0.7, 0.8)) # Pesos iniciales
+
+net.data <- neuralnet(clase ~ a1 + a2 + a3, data[1,], # Elegimos la primer tupla
+					  hidden = c(3), algorithm = "backprop", # 1 Capa oculta, 3 nodos
+					  learningrate = 0.7, startweights = w)
+```
+
+Pesos iniciales:
+
+```{r echo = FALSE, message = FALSE, warning = FALSE}
+net.data$startweights
+```
+
+```{r fig.width=6.0, fig.height=3.0,echo=FALSE , fig.align = 'center'}
+library(png)
+library(grid)
+
+img <- readPNG("Red_Examen2.png")
+ grid.raster(img)
+```
+
+Nuevos pesos:
+
+```{r echo = FALSE, message = FALSE, warning = FALSE}
+net.data$weights
+```
+
+
+
 ## 6. Formación de conglomerados
 
 ```{r message = FALSE, echo = FALSE}
@@ -220,7 +482,7 @@ nDatos
 ```{r message = FALSE, fig.align = 'center'}
 library(ggplot2)
 
-plt1 <- ggplot(data = nDatos, aes(x = a2, y = a3, color = factor(pred_kmeans))) + geom_point() + temaScatter
+plt1 <- ggplot(data = nDatos, aes(x = a2, y = a3, color = factor(pred_kmeans))) + geom_point(size = 3) + temaScatter
 plt1
 ```
 
