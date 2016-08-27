@@ -3,3 +3,4 @@
 *.html
 *.log
 *.Rhistory
+.Rproj.user

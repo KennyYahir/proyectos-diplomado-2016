@@ -1,0 +1,610 @@
+Individuo,Alumno no. Cuenta,Orden de preferencia,Clave,Nombre de la Materia
+1,308305425,5,"2030,00",Análisis de datos 
+1,308305425,4,"2031,00", Análisis Multivariado
+1,308305425,3,"2049,00",Evaluación de proyectos
+1,308305425,2,"2046,00",Auditoría Actuarial
+1,308305425,1,"2047,00",Contabilidad de Seguros
+2,308188392,5,"2035,00",FINANZAS PUBLICAS
+2,308188392,4,"2056,00",SEGURO DE PERSONAS
+2,308188392,3,"2036,00",FIANZAS
+2,308188392,2,"2040,00",MATEMÁTICAS ACTUARIALES APLICADAS
+2,308188392,1,"2046,00",AUDITORIA ACTUARIAL
+3,307309293,5,"2034,00",Economía Matemática II
+3,307309294,4,"2039,00",Modelos y Simulación
+3,307309295,3,"2051,00",Finanzas Internacionales
+3,307309296,2,"2049,00",Evaluación de Proyectos
+3,307309297,1,"2044,00",Análisis de Estados Financieros
+4,,5,"2035,00",1.-Finanzas Públicas
+4,,4,"2043,00",2.- Planeación Financiera
+4,,3,"2033,00",3.-Derivados
+4,,2,"2049,00",4.-Evaluación de Proyectos
+4,,1,"2054,00",5.-Presupuesto de Capital
+5,30813547-5,5,"2039,00",Modelos y Simulación
+5,30813547-5,4,"2044,00",Analisis de Estados Financieros
+5,30813547-5,3,"2033,00",Derivados
+5,30813547-5,2,"2043,00",Planeación Financiera
+5,30813547-5,1,"2046,00",Auditoria Actuarial
+6,308335912´,5,2033, DERIVADOS
+6,308335912´,4,2048, ESTADISTICA BAYESIANA
+6,308335912´,3,2043,PLANEACION FINANCIERA
+6,308335912´,2,2046,AUDITORIA ACTUARIAL
+6,308335912´,1,2049,EVALUACION DE PROYECTOS
+7,308168145,5,"2033,00",Derivados
+7,308168145,4,"2043,00", Planeación Financiera  
+7,308168145,3,"2055,00",Series de Tiempo
+7,308168145,2,"2046,00",Auditoría Actuarial
+7,308168145,1,"2049,00",Evaluación de Proyectos 
+8,30811946-0,5,"2049,00", Evaluación de proyectos
+8,30811946-0,4,"2033,00",Derivados
+8,30811946-0,3,"2041,00",Muestreo
+8,30811946-0,2,"2044,00",Anįlisis de estados financieros
+8,30811946-0,1,"2046,00",Auditoria Actuarial
+9,308184741,5,"2043,00",PLANEACION FINANCIERA
+9,308184741,4,"2044,00",ANALISIS DE ESTADOS FINANCIEROS
+9,308184741,3,"2049,00",EVALUACION DE PROYECTOS
+9,308184741,2,"2054,00",PRESUPUESTO DE CAPITAL
+9,308184741,1,"2051,00",FINANZAS INTERNACIONALES
+10,411090140,5,"2033,00",Derivados
+10,411090140,4,"2051,00",Finanzas Internacionales 
+10,411090140,3,"2046,00",Auditoria Actuarial
+10,411090140,2,2035,Finanzas Publicas 
+10,411090140,1,"2044,00",Análisis de Estados Financieros
+11,308159754,5,"2044,00",Análisis de Estados Financieros
+11,308159754,4,"2051,00",Finanzas Internacionales
+11,308159754,3,"2039,00",Modelos y Simulación
+11,308159754,2,"2043,00",Planeación Financiera
+11,308159754,1,"2033,00",Derivados
+12,,5,2030,Analisis de datos categoricos.
+12,,4,2031,Analisis Multivariado.
+12,,3,2033,Derivados.
+12,,2,2049,Evaluacion de proyectos
+12,,1,2051,Finanzas internacionales
+13,30731961-2,5,2041,Muestreo
+13,30731961-2,4,2030,Análisis de datos categóricos
+13,30731961-2,3,2048,Estadística Bayesiana
+13,30731961-2,2,2031,Análisis multivariado
+13,30731961-2,1,"2033,00",Derivados
+14,41103109-1,5,2033, Derivados
+14,41103109-1,4,2046,   Auditoria Actuarial
+14,41103109-1,3,2031, Análisis Multivariado
+14,41103109-1,2,2050, Evaluación de Proyectos
+14,41103109-1,1,2039, Modelos y Simulación 
+15,308128143,5,2046,Auditoria actuarial 
+15,308128143,4,2033,Derivados
+15,308128143,3,2039,Modelos y simulacion 
+15,308128143,2,2031,Analisis multivariado 
+15,308128143,1,2049,Evaluacion de proyectos 
+16,308166134,5,2048,Estadística Bayesiana
+16,308166134,4,2041,Muestreo
+16,308166134,3,2032,Análisis de Regresión
+16,308166134,2,2039,Modelos y Simulación
+16,308166134,1,2033,Derivados
+17,,5,2033, Derivados
+17,,4,2039, Modelos y Simulación
+17,,3,2031, Análisis Multivariado
+17,,2,2055, Series de Tiempo
+17,,1,"2049,00",Evaluación de Proyectos 
+18,410072592,5,"2033,00",Derivados
+18,410072592,4,"2051,00",Finanzas internacionales
+18,410072592,3,"2044,00",Análisis de estados financieros
+18,410072592,2,"2046,00",Auditoria actuarial
+18,410072592,1,2035,Finanzas públicas
+19,411068642,5,2033,DERIVADOS
+19,411068642,4,2049,EVALUACION DE PROYECTOS
+19,411068642,3,2054,PLANEACION FINANCIERA
+19,411068642,2,2041,MUESTREO
+19,411068642,1,2031,ANALISIS MULTIVARIADO
+20,30715242-2,5,2033,DERIVADOS
+20,30715242-2,4,2049,EVALUACION DE PROYECTOS
+20,30715242-2,3,2054,PLANEACION FINANCIERA
+20,30715242-2,2,2041,MUESTREO
+20,30715242-2,1,"2031,00",ANALISIS MULTIVARIADO
+21,41108405-9,5,2046,Auditoria Actuarial
+21,41108405-9,4,2047, Contabilidad de seguros
+22,,5,2048,ESTADISTICA BAYESIANA
+22,,4,2053,PROCESOS ESTOCASTICOS
+22,,3,2031,ANALISIS MULTIVARIADO
+22,,2,2046,AUDITORIA ACTUARIAL
+22,,1,2039,MODELOS Y SIMULACION
+23,30811792-3,5,2046,Auditoria Actuarial
+23,30811792-3,4,2047, Contabilidad de seguros
+24,,5,2048,Estadística Bayesiana
+24,,4,2039,Modelos y Simulación
+24,,3,2032,Análisis de Regresión
+24,,2,2041,Muestreo
+24,,1,2037, Investigación de Operaciones II
+25,308136537,5,2037, INVESTIGACIÓN DE OPERACIONES (SUGERENCIA: PROFESOR CRUZ MONTES)
+25,308136537,4,2049, EVALUACIÓN DE PROYECTOS
+25,308136537,3,2033, DERIVADOS
+25,308136537,2,2051, FINANZAS INTERNACIONALES
+25,308136537,1,2030,ANÁLISIS DE DATOS CATEGÓRICOS
+26,308708651,5,2033, derivados
+26,308708651,4,2039,modelos y simulacion
+26,308708651,3,2049,evaluacion de proyectos
+26,308708651,2,2055,series de tiempo
+26,308708651,1,2048, bayesiana 
+27,308168138,5,"2039,00",MODELOS Y SIMULACIÓN
+27,308168138,4,2046,AUDITORIA ACTUARIAL
+27,308168138,3,2051,FINANZAS INTERNACIONALES
+27,308168138,2,2044,ANALISIS DE ESTADOS FINANCIEROS
+27,308168138,1,2049,EVALUACION DE PROYECTOS
+28,308148479,5,2037,  INVESTIGACIÓN DE OPERACIONES II
+28,308148479,4,2039,  MODELOS Y SIMULACIÓN
+28,308148479,3,2044,  ANÁLISIS DE ESTADOS FINANCIEROS
+28,308148479,2,2046,  AUDITORÍA ACTUARIAL
+28,308148479,1,2047,   CONTABILIDAD DE SEGUROS
+29,308311547,5,2048,Estadística Bayesiana
+29,308311547,4,2039,Modelos y simulación
+29,308311547,3,2032,Análisis de Regresión
+29,308311547,2,2037,Investigación de Operaciones II
+29,308311547,1,2049,Evaluación de Proyectos
+30,307689872,5,2048,Estadística Bayesiana    
+30,307689872,4,2049,Evaluación de Proyectos   
+30,307689872,3,2039, Modelos y simulación
+30,307689872,2,2055, Series de tiempo
+30,307689872,1,2041, Muestreo
+31,,5,2031,Analisis Multivariado
+31,,4,2033,Derivados
+31,,3,2049,Evaluación de proyectos
+31,,2,2046,Auditoria Actuarial
+31,,1,2051,Finanzas Internacionales
+32,307128535,5,2046,1. Auditoria Actuarial
+32,307128535,4,2043,2. Planeacion Financiera
+32,307128535,3,2030,3. Analisis de Datos Categóricos
+32,307128535,2,2039,4. MODELOS Y SIMULACIÓN
+33,30716015-3,5,2037, Investigación de operaciones 2
+33,30716015-3,4,2054,Presupuesto de capital
+33,30716015-3,3,2033,Derivados
+33,30716015-3,2,2055,Series de tiempo
+33,30716015-3,1,2043,Planeación financiera
+34,411016698,5,2032,Análisis de Regresión.
+34,411016698,4,"2048,00",Estadística Bayesiana.
+34,411016698,3,2041,Muestreo.
+34,411016698,2,2034,Economía Matemática II.
+34,411016698,1,2037,Investigación de Operaciones II.
+35,30627339-5,5,2041,Muestreo
+35,30627339-5,4,2030,Análisis de datos categóricos
+35,30627339-5,3,2048,Estadística Bayesiana
+35,30627339-5,2,2031,Análisis multivariado
+35,30627339-5,1,2033,Derivados
+36,308119408,5,2048,Estadística Bayesiana
+36,308119408,4,2041,Muestreo.
+36,308119408,3,2032,Análisis de Regresión.
+36,308119408,2,2037,Investigación de Operciones II
+36,308119408,1,2033,Derivados.
+37,30704797-7,5,2039, Modelos y Simulación
+37,30704797-7,4,2043,Planeación Financiera
+37,30704797-7,3,2033,Derivados
+37,30704797-7,2,2035,Finanzas Públicas
+38,,5,2033, DERIVADOS
+38,307689872,4,2049,EVALUACIÓN DE PROYECTOS
+38,,3,2041,MUESTREO
+38,,2,2031,ANÁLISIS MULTIVARIADO
+38,,1,2046,AUDITORIA ACTUARIAL
+39,,5,2048,Estadística Bayesiana    
+39,,4,2032,Evaluación de Proyectos   
+39,,3,2039, Modelos y simulación
+39,,2,2040, Series de tiempo
+39,,1,2041, Muestreo
+40,,5,2046,Auditoria actuarial
+40,,4,2033,Derivados
+40,,3,2049,Evaluacion de proyectos
+40,,2,2043,Planeacion financiera
+40,,1,2037,IDO 2
+41,308164707,5,2039,Modelos y simulación
+41,308164708,4,2044,Analisis de estados financieros
+41,308164709,3,2041,Muestreo
+41,308164710,2,2046,Auditoria actuarial
+41,308164711,1,2033,Derivados
+42,411019510,5,2049, Evaluación de proyectos
+42,411019510,4,2040,Matemáticas actuariales aplicadas
+42,411019510,3,2039,Modelos y simulación
+42,411019510,2,2046,Auditoría actuarial
+42,411019510,1,2043,Planeación financiera
+43,307105899,5,"2031,00",Análisis multivariado
+43,307105899,4,2039,Modelos y simulación
+43,307105899,3,2046,Auditoria Actuarial
+43,307105899,2,2034,Economía Matemática
+43,307105899,1,2033,Derivados
+44,41108172-8,5,2049, Evaluación de proyectos
+44,41108172-8,4,2040, Matemáticas actuariales aplicadas
+44,41108172-8,3,2039, Modelos y simulación
+44,41108172-8,2,2046, Auditoría actuarial
+44,41108172-8,1,2043, Planeación financiera
+45,307124025,5,2032,Análisis de regresión
+45,307124025,4,2042,Modelos microeconómicos
+45,307124025,3,2037,Investigación de operaciones 2
+46,308170719,5,2046, Auditoria Actuarial
+46,308170719,4,2033, Derivados
+46,308170719,3,2049,Evaluación de Proyectos
+46,308170719,2,2035,Finanzas publicas
+46,308170719,1,2038,Legislacion de Seguros
+47,30769936-3,5,2039, Modelos y simulación
+47,30769936-3,4,2041,Muestreo
+47,30769936-3,3,2040,Evaluación de Proyectos
+47,30769936-3,2,2048, Estadística Bayesiana
+47,30769936-3,1,2037,Investigación de Operaciones II
+48,30706520-9,5,2032,Análisis de Regresión
+48,30706520-9,4,2039,Modelos y Simulación
+48,30706520-9,3,2048,Estadística Bayesiana
+48,30706520-9,2,2041,Muestro
+48,30706520-9,1,2030,Análisis de Datos Categóricos
+49,308630303,5,2048,Estadística Bayesiana
+49,308630303,4,2039,Modelos y Simulación
+49,308630303,3,2055,Series de Tiempo
+49,308630303,2,2033,Derivados
+49,308630303,1,2032,Análisis de Regresión
+50,308190320,5,2046,Auditoría Actuarial
+50,308190320,4,2035,Finanzas públicas
+50,308190320,3,2051,Finanzas internacionales
+50,308190320,2,2033,Derivados
+50,308190320,1,2034,Economía matemática II
+51,308214503,5,2039, Modelos y Simulación
+51,308214503,4,2032, Análisis de Regresión
+51,308214503,3,2048,Estadística Bayesiana
+51,308214503,2,2055,Series de Tiempo
+51,308214503,1,2041,Muestreo
+52,411014814,5,2048, Estadística Bayesiana
+52,411014814,4,2055,Series de tiempo 
+52,411014814,3,2031,Análisis multivariado 
+52,411014814,2,2039,Modelos y Simulación
+52,411014814,1,2053,Procesos estocásticos II 
+53,,5,2033,DERIVADOS
+53,,4,2043,PLANEACIÓN FINANCIERA
+53,,3,2030, ANÁLISIS DE DATOS CATEGÓRICOS
+53,,2,2039,MODELOS Y SIMULACIÓN
+54,308613755,5,2033, Derivados
+54,308613755,4,2049,Evaluación de proyectos
+54,308613755,3,2039,Modelos y Simulación
+54,308613755,2,2048,Estadística Bayesiana
+54,308613755,1,2041,Muestreo
+55,308321227,5,2037,                    Investigación de Operaciones II
+55,308321227,4,2033,                   Derivados
+55,308321227,3,2049,                   Evaluación de Proyectos
+55,308321227,2,2055,                   Series de Tiempo
+55,308321227,1,2039,                 Modelos y Simulación
+56,308135035,5,2041,  Muestreo 
+56,308135035,4,2032,   Análisis de regresión 
+56,308135035,3,2048,   Estadística Bayesiana 
+56,308135035,2,2039,    Modelos y simulación 
+56,308135035,1,2030,   Análisis de datos categóricos 
+57,,5,2048,Estadística Bayesiana
+57,,4,2039,2 Modelos y simulación 
+57,,3,2032,3 Regresión Lineal
+57,,2,2031,4 Análisis Multivariado
+57,,1,2041,5 Muestreo
+58,308151521,5,2041, Muestreo
+58,308151521,4,2049,Evaluación de proyectos 
+58,308151521,3,2048,Estadística Bayesiana
+58,308151521,2,2039,Modelos y simulación
+58,308151521,1,2033,Derivados
+59,,5,2048,"Estadística Bayesiana ,"
+59,,4,2041,Muestreo 
+59,,3,2032, Analisis de Regresión 
+59,,2,2030, Analisis de Datos Categoricos
+59,,1,2031, Analisis Multivariado 
+60,411090755,5,2037, investigacion de operaciones II (sugerencia: profesor cruz montes)
+60,411090755,4,2049,evaluacion de proyectos
+60,411090755,3,2033, derivados
+60,411090755,2,2044, analisis de estados financieros
+60,411090755,1,2051, finanzas internacionales
+61,308335194,5,2037,     Investigación de Operaciones II     
+61,308335194,4,2039, Modelos y simulación
+61,308335194,3,2033, Derivados                                       
+61,308335194,2,2036, Fianzas       
+61,308335194,1,2049, Evaluación de Proyectos
+62,307163336,5,"2032,00",           An=E1lisis de Regresi=F3n
+62,307163336,4,"2039,00",          Modelos y Simulaci=F3n
+62,307163336,3,"2044,00",          An=E1lisis de Estados Financieros
+62,307163336,2,"2033,00",          Derivados
+62,307163336,1,"2051,00",          Finanzas Internacionales
+63,307311496,5,"2043,00",
+63,307311496,4,"2044,00",
+63,307311496,3,"2033,00",
+63,307311496,2,"2051,00",
+63,307311496,1,"2046,00",
+64,307007353,5,"2032,00",     Análisis de Regresión
+64,307007353,4,"2039,00",    Modelos y Simulación
+64,307007353,3,"2046,00",   Auditoria Actuarial
+64,307007353,2,"2048,00",   Estadística Bayesiana 
+64,307007353,1,"2053,00",   Procesos Estocásticos II
+65,307163336,5,"2032,00",          Anįlisis de Regresión
+65,307163336,4,"2039,00",   Modelos y Simulación
+65,307163336,3,"2044,00",       Anįlisis de Estados Financieros
+65,307163336,2,"2033,00",       Derivados
+65,307163336,1,"2051,00",      Finanzas Internacionales
+66,30728547-4,5,"2032,00",    Análisis de Regresión
+66,30728547-4,4,"2048,00",    Estadística Bayesiana
+66,30728547-4,3,"2039,00",    Modelos y Simulación
+66,30728547-4,2,"2041,00",    Muestreo
+66,30728547-4,1,"2034,00",    Economía Matemática II
+67,307094366,5,"2511,00",Investigación de Operaciones II
+67,307094366,4,"2613,00",Economía Matemática II
+67,307094366,3,"2034,00",Análisis Econométrico
+67,307094366,2,"2039,00",Modelos y Simulación
+67,307094366,1,"2032,00",Análisis de Regresión
+68,410014732,5,2039,Modelos y Simulación
+68,410014732,4,2032,Análisi de Regresión
+68,410014732,3,2511,Investigación de Operaciones II
+68,410014732,2,2613,Economía Matemática II
+68,410014732,1,2030,Análisis de Datos Categóricos
+69,307089928,5,"2049,00",     Evaluación de proyectos
+69,307089928,4,"2041,00",     Muestreo
+69,307089928,3,"2037,00",     Investigación de operaciones II
+69,307089928,2,"2032,00",     Análisis de regresión 
+69,307089928,1,"2039,00",     Modelos y simulación
+70,410012941,5,"2032,00",              Anįlisis de Regresión
+70,410012941,4,"2039,00",             Modelos y Simulación
+70,410012941,3,"2511,00",             Investigación de Operaciones II
+70,410012941,2,"2041,00",              Muestreo
+70,410012941,1,"2613,00",             Economķa Matemįtica II
+71,307093950,5,"2037,00",              Investigación de operaciones II
+71,307093951,4,"2032,00",              Análisis de regresión
+71,307093952,3,"2039,00",               Modelos y Simulación
+71,307093953,2,"2041,00",               Muestreo
+71,307093954,1,"2054,00",               Presupuesto de Capital
+72,410072956,5,"2037,00",
+72,410072957,4,"2032,00",
+72,410072958,3,"2031,00",
+72,410072959,2,"2039,00",
+72,410072960,1,"2055,00",
+73,307035664,5,"2039,00",             Modelos y simulaci�n 
+73,307035665,4,"2032,00",             An�lisis de regresi�n 
+73,307035666,3,"2048,00",             Estad�stica bayesiana
+73,307035667,2,"2046,00",             Auditoria actuarial 
+73,307035668,1,"2040,00",             Matem�ticas actuariales aplicadas
+74,41001557-1,5,"2049,00",           Evaluaci�n de Proyectos
+74,41001557-2,4,"2041,00",           Muestreo
+74,41001557-3,3,"2037,00",           Investigaci�n de Operaciones II
+74,41001557-4,2,"2032,00",           An�lisis de Regresi�n
+74,41001557-5,1,"2039,00",           Modelos y Simulaci�n
+75,30757240-2,5,2039,Modelos y Simulación
+75,30757240-3,4,2032,Análisis de Regresión
+75,30757240-4,3,2037,Investigación de operaciones II
+75,30757240-5,2,2049,Evaluación de proyectos
+75,30757240-6,1,2041,Muestreo
+76,307270689,5,2046,auditoria actuarial 
+76,307270690,4,2056,seguro de personas 
+76,307270691,3,2038, legislación de seguros 
+76,307270692,2,2044, análisis de estados financieros
+76,307270693,1,2035, finanzas publicas 
+77,307632098,5,2037,Investigación de Operaciones II
+77,307632099,4,2032,                   Anįlisis de Regresión
+77,307632100,3,2039,Modelos y Simulación
+77,307632101,2,2051,                Finanzas Internacionales
+77,307632102,1,2049,                Evaluación de Proyectos
+78,305283041,5,2033,DERIVADOS
+78,305283042,4,2046,AUDITORIA ACTUARIAL
+78,305283043,3,2032,ANALISIS DE REGRESION
+78,305283044,2,2039,MODELOS Y SIMULACION
+78,305283045,1,2036,FIANZAS
+79,307221148,5,2032,Análisis de regresión
+79,307221149,4,2031,. Análisis multivariado
+79,307221150,3,2039,. Modelos y simulación 
+79,307221151,2,2046,. Auditoria actuarial
+79,307221152,1,2033,. Derivados
+80,307279565,5,2032,   Análisis de Regresión
+80,307279566,4,2039,  Modelos y Simulación
+80,307279567,3,2031,Análisis Multivariado
+80,307279568,2,2034, Economía Matemática II
+80,307279569,1,2037, Investigación de Operaciones
+81,307298265,5,2031, Analisis Multivariado
+81,307298266,4,2049,  Evaluación de Proyectos
+81,307298267,3,2039,  Modelos y Simulación
+81,307298268,2,2032, Analisis de Regresión
+81,307298269,1,2037, Investigación de Operaciones II
+82,30728436-7,5,2031,      An�lisis Multivariado
+82,30728436-8,4,2039,    Modelos y Simulaci�n
+82,30728436-9,3,2032,      An�lisis de Regresi�n
+82,30728436-10,2,2037,      Investigaci�n de Operaciones II
+82,30728436-11,1,2041,      Muestreo
+83,307212609,5,2032, analisis de regresion
+83,307212610,4,2039, modelos y simulacion
+83,307212611,3,2040, matematicas actuariales aplicadas
+83,307212612,2,2055, series de tiempo
+83,307212613,1,2034, economia matematica 2
+84,30728696-9,5,2041,Muestreo
+84,30728696-10,4,2032,Análisis de Regresión
+84,30728696-11,3,2037,Investigación de Operaciones II
+84,30728696-12,2,2031,Análisis Multivariado
+84,30728696-13,1,2039,Modelos y Simulación
+85,307007353,5,2041,Muestreo
+85,307007354,4,2039,Modelos y Simulación
+85,307007355,3,2049,Evaluación de Proyectos
+85,307007356,2,2032,Análisis de Regresión
+85,307007357,1,2037,Investigación de Operaciones II
+86,30725968-6,5,2037,Investigación de Operaciones II
+86,30725968-7,4,2041,Muestreo
+86,30725968-8,3,2032,Análisis de Regresión 
+86,30725968-9,2,2039,Modelos y Simulación 
+86,30725968-10,1,2049,Evaluación de Proyectos
+87,410014488,5,2039,Modelos y Silulación 
+87,410014489,4,2032,Analisis de Regresion 
+87,410014490,3,2511,Investigacion de Operaciones II
+87,410014491,2,2049,Evaluacion de  Proyectos 
+87,410014492,1,2041,Muestreo
+88,307682316,5,2033,Derivados
+88,307682317,4,2039,Modelos y simulación
+88,307682318,3,2055,Series de tiempo
+88,307682319,2,2036,Fianzas
+88,307682320,1,2035,Finanzas Públicas
+89,307260318,5,2049,Evaluacion de Proyectos
+89,307260319,4,2054,Presupuesto de Capital
+89,307260320,3,2039,Modelos Y Simulacion
+89,307260321,2,2031,Analisis Multivariado
+89,307260322,1,2032,Analisis  de Regresion
+90,30517382-1,5,2031,Análisis Multivariado
+90,30517382-2,4,2032,Análisis de Regresión
+90,30517382-3,3,2041,Muestreo
+90,30517382-4,2,2039,Modelos y Simulación
+90,30517382-5,1,2030,Análisis de Datos Categóricos
+91,410064146,5,2032,                      Anįlisis de Regresión
+91,410064147,4,2039,                        Modelos y simulación
+91,410064148,3,2031,                     Anįlisis Multivariado
+91,410064149,2,2030,Anįlisis de datos Categóricos
+91,410064150,1,2037,                      Investigación de Operaciones II
+92,410090408,5,2032,Analisis de Regresion
+92,410090409,4,2039,Modelos y Simulacion
+92,410090410,3,2613,Economia Matematica II
+92,410090411,2,2033,Derivados 
+92,410090412,1,2049,Evaluacion de Proyectos
+93,307222688,5,2039,             Modelos y simulaci n
+93,307222689,4,2048,                   Estad stica Bayesiana
+93,307222690,3,2031,                 An lisis multivariado
+93,307222691,2,2055,                    Series de tiempo
+93,307222692,1,2033,                         Derivados 
+94,41007544-5,5,2041,              Muestreo
+94,41007544-6,4,2055,            Series de Tiempo
+94,41007544-7,3,2033,              Derivados
+94,41007544-8,2,2032,              Analisis de Regresion
+94,41007544-9,1,2039,             Modelos y Simulacion
+95,307263852,5,2033,Derivados
+95,307263853,4,2049,Evaluación de Proyectos
+95,307263854,3,2031,Análisis Multivariado
+95,307263855,2,2039,Modelos y Simulación
+95,307263856,1,2040,Matemáticas Actuariales Aplicadas
+96,307620826,5,2049,                Evaluación de Proyectos 
+96,307620827,4,2051,                     Finanzas Internacionales
+96,307620828,3,2037,                     Investigación de Operaciones II
+96,307620829,2,2032,                   Análisis de Regresión
+96,307620830,1,2035,                     Finanzas Públicas
+97,307087694,5,2039,Modelos y Simulación   
+97,307087695,4,2032, Análisis de Regresión
+97,307087696,3,2055, Series de Tiempo
+97,307087697,2,2049, Evaluación de Proyectos
+97,307087698,1,2046, Auditoria Actuarial
+98,307049957,5,2032,Análisis de Regresión
+98,307049958,4,2055,Series de Tiempo
+98,307049959,3,2039,Modelos y Simulación
+98,307049960,2,2031,Análisis Multivariado
+98,307049961,1,2041,Muestreo
+99,307687043,5,2046,           Auditoria Actuarial
+99,307687044,4,2036,             Fianzas
+99,307687045,3,2039,            Modelos y Simulación
+99,307687046,2,2043,            Planeación Financiera
+99,307687047,1,2054,       Presupuesto de Capital
+100,307132550,5,2032,An lisis de regresion
+100,307132551,4,2039,Modelos y Simulaci n
+100,307132552,3,2055, Series de Tiempo
+100,307132553,2,2031,  An lisis Multivariado
+100,307132554,1,2041,  Muestreo
+101,,5,2049,Evaluacion de proyectos 
+101,,4,2043,Planeacion financiera 
+101,,3,2032,Analisis de regresion
+101,,2,2051,Finanzas internacionales 
+101,,1,2054,Presupuesto de capital 
+102,307321561,5,2033,1-Derivados
+102,307321562,4,2039,2.-Modelos y Simulacion
+102,307321563,3,2032,3.-Analisis de regresion
+102,307321564,2,,4.-Econometria
+102,307321565,1,2055,5.-Series de tiempo
+103, 307138631 ,5,2033,1-Derivados
+103, 307138631 ,4,2039,2.-Modelos y Simulacion
+103, 307138631 ,3,2032,3.-Analisis de regresion
+103, 307138631 ,2,2049,4.-Evaluacion de proyectos
+103, 307138631 ,1,2055,5.-Series de tiempo
+104,410077810,5,2039,     Modelos y Simulación
+104,410077811,4,2032,     Analisis de Regresión
+104,410077812,3,2049,     Evaluación de proyectos
+104,410077813,2,2055,     Series de tiempo
+104,410077814,1,2041,     Muestreo
+105,,5,2033,Derivados
+105,,4,2037, Investigaci n de Operaciones
+105,,3,2612, Muestreo
+105,,2,2040, Matem ticas Actuariales Aplicadas
+105,,1,2030, An lisis de Datos Categ ricos
+106,307288925,5,2048,                      Estadistica Bayesiana
+106,307288926,4,2032,                    Analisis de Regresion
+106,307288927,3,2031,                      Analisis Multivariado
+106,307288928,2,2055,                      Series de Tiempo
+106,307288929,1,2039,                      Modelos y Simulacio
+107,,5,2043,1. Planeación Financiera
+107,,4,2049,2. Evaluación de Proyectos
+107,,3,2054,3. Presupuesto de Capital
+107,,2,2036,4. Fianzas
+107,,1,2037,5. Investigación de Operaciones II 
+108,307205212,5,2033,1.-Derivados
+108,307205213,4,2039,2.-Modelos y Simulacion
+108,307205214,3,2032,3.-Analisis de Regresion
+108,307205215,2,2049,4.-Evaluacion de proyectos
+108,307205216,1,2055,5.-Series de Tiempo
+109,40910776-8,5,2032,Análisis de regresión
+109,40910776-9,4,2039,Modelos y simulación
+109,40910776-10,3,2055,Series de tiempo
+109,40910776-11,2,2031,Análisis multivariado
+109,40910776-12,1,2041,Muestreo
+110,307105143,5,2034,Economia Matemàtica              
+110,307105144,4,2041,Muestreo                                
+110,307105145,3,2048,Estadistica Bayesiana               
+110,307105146,2,2044,Analisis de Estados Financieros 
+110,307105147,1,2049,Evaluaciòn de Proyectos           
+111,307265203,5,2041,               MUESTREO
+111,307265204,4,2032,               ANÁLISIS DE REGRESIÓN
+111,307265205,3,2037,               INVESTIGACIÓN DE OPERACIONES II
+111,307265206,2,2049,               EVALUACIÓN DE PROYECTOS
+111,307265207,1,2048,               ESTADÍSTICA BAYESIANA 
+112,30714410-0,5,2039,Modelos y Simulacion
+112,30714410-1,4,2032, Analisis de Regresion
+112,30714410-2,3,2044,Analisis de Estados Financieros
+112,30714410-3,2,2046, Auditoria Actuarial 
+112,30714410-4,1,2051, Finanzas Internacionales
+113,,5,2037, 1. Investigación de Operaciones II  
+113,,4,2032,2. Análisis de Regresión 
+113,,3,2039,3. Modelos y Simulación 
+113,,2,2055,4. Series de Tiempo 
+113,,1,2048,5. Estadística Bayesiana 
+114,41008915-4,5,2039,  Modelos y simulacion
+114,41008915-5,4,2049,Evaluacion de proyectos
+114,41008915-6,3,2043, Planeacion Financiera
+114,41008915-7,2,2046,  Auditoria Actuarial
+114,41008915-8,1,2032,  Analisis de regresion
+115,307266956,5,2032, análisis de regresión 
+115,307266957,4,2039,modelos y simulación 
+115,307266958,3,2045, análisis econometrico
+115,307266959,2,2049, evaluación de proyectos 
+115,307266960,1,2037, investigación de operaciones 2
+116,307113946,5,2049,    Evaluación de proyectos
+116,307113947,4,2043,    Planeación financiera.
+116,307113948,3,2051,    Finanzas Internacionales
+116,307113949,2,2056,    Seguro de personas
+116,307113950,1,2047,    Contabilidad de seguros 
+117,30754190-1,5,2050,     Estad stica de seguros
+117,30754190-2,4,2031,     An lisis multivariado
+117,30754190-3,3,2046,     Auditor a actuarial
+117,30754190-4,2,2034,    Econom a matem tica II
+117,30754190-5,1,2041,     Muestreo
+118,307309499,5,2051,Finanzas Internacionales
+118,307309500,4,2039,Modelos y simulacion
+118,307309501,3,2033,Derivados
+118,307309502,2,2032,Analisis de regresion
+118,307309503,1,2049,Evaluacion de Proyectos
+119,303571111,5,2048,           Estad stica Bayesiana
+119,303571112,4,2032,           An lisis de Regresi n
+119,303571113,3,2033,           Derivados
+119,303571114,2,2055,          Series de Tiempo
+119,303571115,1,2039,           Modelos y simulaci n
+120,307697455,5,2032,1.-ANALISIS DE REGRESIÓN         
+120,307697456,4,2031,2.-ANALISIS MULTIVARIADO         
+120,307697457,3,2039,3.-MODELOS Y SIMULACION        
+120,307697458,2,2033,4.-DERIVADOS                            
+120,307697459,1,2049,5.-EVALUACION DE PROYECTOS  
+121,307037118,5,2039,     Modelos y simulación
+121,307037119,4,2032,     Analisis de Regresión
+121,307037120,3,2034,    Economia Matemática 2
+121,307037121,2,2031,     Análisis Multivariado
+121,307037122,1,2048,     Estadística Bayesiana
+122,410012611,5,2048,ESTADÍSTICA BAYESIANA
+122,410012612,4,2046,AUDITORIA ACTUARIAL
+122,410012613,3,2041,MUESTREO
+122,410012614,2,2039,MODELOS Y SIMULACION 
+122,410012615,1,2040,MATEMÁTICAS ACTUARIALES APLICADAS
+123,307042477,5,2033,Derivados
+123,307042478,4,2031,Analisis multivariado
+123,307042479,3,2032,Analisis de regresion
+123,307042480,2,2048,Estadistica bayesiana
+123,307042481,1,2049,Evaluacion de proyectos
+124,,5,2039,Modelos y Simulación
+124,,4,2048,Estadística Bayesiana
+124,,3,2032,Análisis de Regresión
+124,,2,2055,Series de Tiempo
+124,,1,2031,Análisis Multivariado
