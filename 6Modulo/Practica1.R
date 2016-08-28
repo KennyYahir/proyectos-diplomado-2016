@@ -9,6 +9,7 @@
 
 ############################################################
 ## Preparacion de datos
+setwd("/home/fou/Desktop/proyectos-diplomado-2016/6Modulo/")
 dat1 <- read.csv("eleccciodeoptativas2016grupo2.xlsx - Base completa de eleccion.csv", 
 				 dec = ",")
 
@@ -109,7 +110,9 @@ Gruposlala <- cutree(lala, 5)
 plot(lala)
 rect.hclust(lala,5)
 sqldf("select * from dat2 where clave=2033")
-apply(encoding2,1,sum)/124
+
+stats <- (encoding2[encoding2>0] <-1)
+apply(stats,1,sum)
 
 
 ############################################################
