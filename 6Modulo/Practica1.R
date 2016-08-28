@@ -110,14 +110,12 @@ Gruposlala <- cutree(lala, 5)
 plot(lala)
 rect.hclust(lala,5)
 sqldf("select * from dat2 where clave=2033")
-<<<<<<< HEAD
+stats <- encoding2
+#stats[ stats >0] <- 1
+frecc <- data.frame(frec = apply(stats,1,sum), nom = rownames(stats))
 
-stats <- (encoding2[encoding2>0] <-1)
-apply(stats,1,sum)
-=======
-apply(encoding2,1,sum)
->>>>>>> 41f0398fa325fb6caf8161e7c9ac54399b2e83e0
-
+pt1 <- ggplot(data = frecc, aes(x = nom, y = frec)) + geom_bar(stat = "identity") + coord_flip()
+pt1 + theme_bw() + theme(axis.text.x = element_text(angle = 90))
 
 ############################################################
 ## Visualizacion
