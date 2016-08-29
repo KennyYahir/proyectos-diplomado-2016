@@ -28,7 +28,7 @@ dat2 <- na.omit(dat2)
 trainData.pre <- dat1[, c(1, 3:4)]
 ```
 
-Los datos consisten en 2 tablas, una contiene las preferencias de los alumnos por las materias que eligieron y la otra la lista total de materias con su clave correspondiente.
+Los datos consisten en 2 tablas, una contiene las preferencias de los alumnos por las materias que eligieron y la otra la lista total de materias con su clave correspondiente. La escala de la preferencia es interpretada como "1" menos preferencia y "5" como mayor preferencia.
 
 Se muestra un fragmento de cada tabla:
 
@@ -39,9 +39,9 @@ kable(head(dat1))
 kable(head(dat2))
 ```
 
-Se puede ver que en la columna de materias no se encuentra en un formato en específico, por lo que deberiamos pensar en utilizar solo las claves, confiando en que el error que un alumno pudiera cometer al saberla y escribirla es mínimo.
+Se puede ver que en la columna de materias de la primer tabla no se encuentra en un formato en específico, por lo que deberiamos pensar en utilizar solo las claves, confiando en que el error que un alumno pudiera cometer al saberla y escribirla es mínimo.
 
-Ahora, dada la naturaleza de los datos, no se puede aplicar un Algoritmo de clustering directamente; debemos transformarlos y adecuarlos pasando los nombres de las materias como características: para cada individuo tendremos la preferencia hacia todas las materias.
+Ahora, dada la naturaleza de los datos, no se puede aplicar un Algoritmo de clustering directamente; debemos transformarlos y adecuarlos pasando las claves de las materias como características: para cada individuo tendremos la preferencia hacia todas las materias.
 
 ```{r echo = FALSE}
 x <- melt(trainData.pre, id.vars = c("Individuo","Clave")) # Melt previo
@@ -58,11 +58,133 @@ Después de la transformación vemos los primeros renglones de nuestra nueva bas
 base.temp <- cbind(data.frame(no.individuo = 1:nrow(encoding)), encoding)
 
 kable(base.temp[1:3, 1:5])
+```
+
+Asumimos que los alumnos al no incluir las demás materias en la lista, su preferencia por ellas es cero.
+
+### Distribución de materias
+
+```{r echo = FALSE, message = FALSE}
+
+e <- data.frame(Top = rownames(t(encoding)))
+a <- merge(e, dat2, by.x = 'Top', by.y = 'clave', all.x = TRUE) # Cruze de las tablas
+ax <- as.character(a$materia)
+ax.nas <- is.na(ax) # Posiciones de los NA's
+ax[ax.nas] <- paste0('na', 1:sum(ax.nas))
+encoding2 <- t(encoding)
+rownames(encoding2) <- ax
+
+library(data.table)
+library(ggplot2)
+
+stats <- encoding2
+
+stats[ stats == 0] <- NA # Regresamos los valores a NA
+stats.media <- apply(stats, 1, sum, na.rm = T)
+
+stats[!is.na(stats)] <- 1 # Solo contaremos las apariciones de cada materia(no importa la preferencia)
+stats.suma = apply(stats, 1, sum, na.rm = T)
+
+frecc <- data.table(media = round(stats.media, 2),
+					suma = stats.suma,
+					nom = rownames(stats)) # Para contar por incidencia y no por preferencia)
+
 
 ```
 
+En las siguientes gráfica mostramos la frecuencia y la preferencia total de todas las materias registradas:
+
+```{r echo = FALSE}
+var.sel <- "suma"
+frecc <- frecc[order(frecc[ , var.sel, with = F])] # Orden de las barras
+frecc$nom <- factor(frecc$nom, levels = unique(frecc$nom)) # Para poder mantener un orden distinto
+
+
+pt1 <- ggplot(data = frecc, aes_string(x = "nom", y = var.sel, fill = var.sel, label = var.sel))
+pt2 <- pt1 + geom_bar(stat = "identity") + coord_flip() + scale_fill_gradient(low = "blue", 
+																			  high = "red")
+pt3 <- pt2 + geom_text(hjust = -0.08) + scale_y_continuous(limits = c(0, 1.1*max(frecc[, var.sel, 
+																					   with = F])))
+pt4 <- pt3 + xlab(NULL) + ylab("Frecuencia")
+pt4 + theme_classic() + theme(legend.position = "none")
+```
+
+* 85 alumnos contemplan la materia *Modelos y simulación*  como parte de su horario.
+
+```{r echo = FALSE}
+var.sel <- "media"
+frecc <- frecc[order(frecc[ , var.sel, with = F])] # Orden de las barras
+frecc$nom <- factor(frecc$nom, levels = unique(frecc$nom)) # Para poder mantener un orden distinto
+
+
+pt1 <- ggplot(data = frecc, aes_string(x = "nom", y = var.sel, fill = var.sel, 
+									   label = var.sel, 2))
+pt2 <- pt1 + geom_bar(stat = "identity") + coord_flip() + scale_fill_gradient(low = "blue", 
+																			  high = "red")
+pt3 <- pt2 + geom_text(hjust = -0.08) + scale_y_continuous(limits = c(0, 1.1*max(frecc[, var.sel, 
+																					   with = F])))
+pt4 <- pt3 + xlab(NULL) + ylab("Preferencia total")
+pt4 + theme_classic() + theme(legend.position = "none")
+```
+
+* *Modelos y simulación* también tiene una **alta** preferencia entre los alumnos que la incluyen en su lista.
+
 ## Método
 
+El algoritmo aplicado a los datos ya transformados es un *Agrupamiento jerárquico*, pero antes de ello, ejecutaremos una serie de *K-medias* para tener una noción de qué $K$ elegir para el número de grupos.
+
+```{r echo = FALSE}
+set.seed(0)
+varIn <- c() # Vector que guardara las varianzas totales
+
+for (i in 1:7)
+{
+    varIn[i] <- tryCatch(sum(kmeans(encoding, centers = i)$withinss),
+                         warnings = "warning", error = "aqui")  # Por si algun modelo falla
+}
+
+plot(varIn, col = "orange", xlab = "No. clusters", pch = 19)
+lines(varIn, col = "orange") # Graficamos la varianza acumulada
+
+K <- 5
+```
+
+Observamos que con $K = `r K`$ grupos disminuye considerablemente la suma de varianzas de los grupos.
+
+```{r echo = F}
+Jerarquia <- hclust(dist(encoding)) # Cluster Jerarquico desdepues de hacer una elección del K
+GruposJerarquia <- cutree(Jerarquia, K) # con K-means
+
+FiltroMateria <- function(grupo, etiquetas, datos, dat2)
+{
+    Filtro <- function(datos, etiquetas)
+        {
+        datos[ datos == 0] <- NA
+        kpi <- apply(datos[etiquetas==grupo,], 2, mean, na.rm = TRUE)
+        top <- data.frame( Top  = names(kpi[order(kpi, decreasing = TRUE)][1:3]), 
+        				   kpi = kpi[order(kpi, decreasing = TRUE)][1:3])
+        Top <- merge(top, dat2, by.x = 'Top', by.y = 'clave')
+        return(Top[order(Top['kpi']),])
+        }
+    
+    
+} # Funcion para obtener los tops por media de materias para los grupos
+
+```
+
+### Dendograma
+
+Se extrae el Top 3 de materias de cada grupo encontrado basado en su preferencia total:
+
+![ima1](dendo_editado3.png)
+
+
 ## Conclusiones
+
+* Dadas las restricciones del problema, es plausible proponer los $`r K`$ grupos encontrados como los grupos de materias a abrir.
+
+* Se puede eliminar el grupo 5 agregando sus materias al grupo 2 ya que algunas de éstas se repiten.
+
+* Siguiendo el razonamiento anterior también podría eliminarse el grupo 3 metiendo *Estadística Bayesiana* al grupo 4 ya que las otras dos quedarían en el grupo 2.
 
 ## Bibliografía

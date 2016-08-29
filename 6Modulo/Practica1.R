@@ -54,8 +54,8 @@ FiltroMateria <- function(grupo, etiquetas, datos, dat2)
 {
     Filtro <- function(datos, etiquetas)
         {
-        datos[ datos==0] <- NA
-        kpi <- apply(datos[etiquetas==grupo,], 2, mean, na.rm = TRUE)
+        datos[ datos == 0] <- NA
+        kpi <- apply(datos[etiquetas==grupo,], 2, sum, na.rm = TRUE)
         top <- data.frame( Top  = names(kpi[order(kpi, decreasing = TRUE)][1:3]), 
         				   kpi = kpi[order(kpi, decreasing = TRUE)][1:3])
         Top <- merge(top, dat2, by.x = 'Top', by.y = 'clave')
@@ -63,7 +63,7 @@ FiltroMateria <- function(grupo, etiquetas, datos, dat2)
         }
     
     
-}
+} # Funcion para obtener los tops por media de materias para los grupos
 
 Mahil <- FiltroMateria(1, GruposJerarquia, encoding, dat2 )
 Top1 <- Mahil(encoding, GruposJerarquia)
@@ -109,6 +109,10 @@ Gruposlala <- cutree(lala, 5)
 
 plot(lala)
 rect.hclust(lala, 5) # No obtenemos un buen agrupamiento :(
+
+op = par(bg = "#FFFFFF")
+A2Rplot(lala, k = 5, boxes = F, col.up = "gray50")
+
 sqldf("select * from dat2 where clave=2033")
 
 library(data.table)
