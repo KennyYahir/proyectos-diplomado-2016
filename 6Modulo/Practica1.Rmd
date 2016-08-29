@@ -1,14 +1,32 @@
 ---
-title: "Práctica 1 - Elección de materias"
+title: "Determinación de grupos de asignaturas a partir de preferencias de alumnos"
 output: html_document
 ---
 
 
 ## Objetivo
 
+El objetivo principal de esta práctica consiste en construir conjuntos de asignaturas ( conocidas en el argot universitario como materias) que determinen grupos a los cuales se inscriban los alumnos de la carrera de actuaria de la FES Acatlán.
+
+La información con la que se dispone para construir los conjuntos es la preferencia de 124 alumnos (la cual se registró en un formato no normalizado) respecto a las 5 materias que cada uno de ellos elige. 
+
+Como objetivo secundario, pero necesario en la práctica, se identificaron grupos de alumnos con preferencias en común con respecto a su inclinación a las asignaturas.
+
+
 
 
 ## Teoría
+
+Para identificar los grupos tanto de alumnos como de materias se empleó el algoritmo $k-means$ y el algoritmo de conglomerados jerárquico ( en este caso se hizo uso de diferentes métodos para realizar la unión entre los conjuntos como el simple, el de “Ward” y el completo).
+
+Dado que el conjunto de datos con el que se trabaja es pequeño, se realizaron varias pruebas con $k-means$ con $k \in \{ 1,2,\dots,124\}$ para observar en qué número de conjuntos la varianza dentro de los grupos decrecía lo suficiente para utilizarla como parámetro de número de grupos de alumnos. Las restricciones del problema establecen que el número de de grupos de alumnos debe de estar entre dos y cinco y como es natural observamos que la varianza intragrupos decrece al incrementar el número de grupos. 
+
+
+Una vez que se determinó el número grupos se fijó este parámetro, por medio de $k-means$, para utilizar el algoritmo de aglomeración jerárquica  sobre el conjunto de alumnos para formar los grupos. Después sobre cada grupo de alumnos se eligieron las materias preferidas en él. Finalmente se utilizó de nuevo el algoritmo de aglomeración jerárquica sobre el conjunto de asignaturas (fijando nuevamente el parámetro obtenido en primer lugar por medio de $k-means$) para corroborar que las materias preferidas por medio de la metodología son identificadas por este modelo como diferentes a las demás (al ser parte de conjuntos unitarios o de cardinalidad baja y distantes de los demás en el dendograma).
+
+
+  
+
 
 ## Análisis estadístico
 
