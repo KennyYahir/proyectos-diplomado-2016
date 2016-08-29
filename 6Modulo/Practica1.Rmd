@@ -60,7 +60,7 @@ base.temp <- cbind(data.frame(no.individuo = 1:nrow(encoding)), encoding)
 kable(base.temp[1:3, 1:5])
 ```
 
-Asumimos que los alumnos al no incluir las demás materias en la lista, su preferencia por ellas es cero.
+Asumimos que los alumnos al no incluir las demás materias en su lista, su preferencia por ellas es cero.
 
 ### Distribución de materias
 
@@ -92,7 +92,7 @@ frecc <- data.table(media = round(stats.media, 2),
 
 ```
 
-En las siguientes gráfica mostramos la frecuencia y la preferencia total de todas las materias registradas:
+En las siguientes gráfica mostramos la frecuencia y la preferencia total de todas las materias registradas. La preferencia total queda definida como la suma de las preferencias por cada materia.
 
 ```{r echo = FALSE}
 var.sel <- "suma"
@@ -127,7 +127,7 @@ pt4 <- pt3 + xlab(NULL) + ylab("Preferencia total")
 pt4 + theme_classic() + theme(legend.position = "none")
 ```
 
-* *Modelos y simulación* también tiene una **alta** preferencia entre los alumnos que la incluyen en su lista.
+* *Modelos y simulación* también tiene una **alta preferencia** entre los alumnos que la incluyen en su lista.
 
 ## Método
 
@@ -172,12 +172,19 @@ FiltroMateria <- function(grupo, etiquetas, datos, dat2)
 
 ```
 
-### Dendograma
+### Agrupamiento jerárquico aglomerativo de alumnos
 
-Se extrae el Top 3 de materias de cada grupo encontrado basado en su preferencia total:
+Se extrae el Top 3 de materias de cada grupo encontrado basado en su **nivel de preferencia total**(se indica a lado del nombre de la materia):
 
 ![ima1](dendo_editado3.png)
 
+### Agrupamiento jerárquico aglomerativo de materias
+
+Como se mencionó también se trataría de ejecutar un clustering sobre las materias:
+
+![ima2](dendo_materias1.png)
+
+* Se confirma la manera en la que se eligen las materias, por ejemplo, podemos ver como *Modelos y Simulación* es agrupada al final ya que muchos alumnos tienen una alta preferencia por ella.
 
 ## Conclusiones
 
@@ -188,3 +195,5 @@ Se extrae el Top 3 de materias de cada grupo encontrado basado en su preferencia
 * Siguiendo el razonamiento anterior también podría eliminarse el grupo 3 metiendo *Estadística Bayesiana* al grupo 4 ya que las otras dos quedarían en el grupo 2.
 
 ## Bibliografía
+
+T. Hastie, R. Tibshirani and J. Friedman. *Elements of Statistical Learning*. Springer, second Edition 2012.
