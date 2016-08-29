@@ -25,8 +25,8 @@ dat2 <- na.omit(dat2)
 
 trainData.pre <- dat1[, c(1, 3:4)]
 
-head(x <- melt(trainData.pre, id.vars = c("Individuo","Clave")))
-head(encoding <- acast(x, Individuo ~ Clave))
+head(x <- melt(trainData.pre, id.vars = c("Individuo","Clave"))) # Melt previo
+head(encoding <- acast(x, Individuo ~ Clave)) # Pasamos las materias como columnas
 
 index <- is.na(encoding) # Buscamos los NA's
 encoding[index] <- 0 # Los remplazamos
@@ -151,7 +151,7 @@ pt2 <- pt1 + geom_bar(stat = "identity") + coord_flip() + scale_fill_gradient(lo
 																			  high = "red")
 pt3 <- pt2 + geom_text(hjust = -0.08) + scale_y_continuous(limits = c(0, 1.1*max(frecc[, var.sel, 
 																					   with = F])))
-pt4 <- pt3 + xlab(NULL) + ylab("Frecuencia")
+pt4 <- pt3 + xlab(NULL) + ylab("Preferencia promedio")
 pt4 + theme_classic() + theme(legend.position = "none")
 ############################################################
 ## Visualizacion
