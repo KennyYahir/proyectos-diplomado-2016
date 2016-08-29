@@ -100,7 +100,7 @@ for (i in 1:5)
 e <- data.frame(Top = rownames(t(encoding)))
 a <- merge(e,dat2, by.x='Top', by.y = 'clave', all.x=TRUE)
 ax <- as.character(a$materia) 
-ax[is.na(ax)] <- 'Kenny'
+ax[is.na(ax)] <- c('na1', 'na2', 'na3')
 encoding2 <- t(encoding)
 rownames(encoding2) <- ax
 
@@ -111,11 +111,18 @@ plot(lala)
 rect.hclust(lala,5)
 sqldf("select * from dat2 where clave=2033")
 stats <- encoding2
-#stats[ stats >0] <- 1
-frecc <- data.frame(frec = apply(stats,1,sum), nom = rownames(stats))
+stats[ stats == 0] <- NA # Para contar por incidencia y no por preferencia
+frecc <- data.table(media = apply(stats, 1, mean, na.rm = T), nom = rownames(stats),
+					suma = apply(stats, 1, sum, na.rm = T))
 
-pt1 <- ggplot(data = frecc, aes(x = nom, y = frec)) + geom_bar(stat = "identity") + coord_flip()
-pt1 + theme_bw() + theme(axis.text.x = element_text(angle = 90))
+var.sel <- "suma"
+frecc <- frecc[order(frecc[ , var.sel, with = F])] # Orden de las barras
+frecc$nom <- factor(frecc$nom, levels = unique(frecc$nom)) # Para poder mantener un orden distinto
+
+
+pt1 <- ggplot(data = frecc, aes_string(x = "nom", y = var.sel, fill = var.sel)) + geom_bar(stat = "identity") + coord_flip()
+pt2 <- pt1 + scale_fill_gradient(low = "blue", high = "red")
+pt2 + theme_bw() + theme(axis.text.x = element_text(angle = 90))
 
 ############################################################
 ## Visualizacion
