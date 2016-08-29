@@ -1,0 +1,17 @@
+---
+title: "Práctica 1 - Eleccion de materias"
+output: html_document
+---
+
+
+## Objetivo
+
+## Teoría
+
+## Análisis estadístico
+
+## Método
+
+## Conclusiones
+
+## Bibliografía
