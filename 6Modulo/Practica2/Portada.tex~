@@ -1,0 +1,55 @@
+
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{dsfont}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{pdfpages}
+\usepackage{anysize}
+\marginsize{2cm}{2cm}{2cm}{2cm}
+\usepackage[hidelinks]{hyperref}% Libreria para insertar links
+
+\setlength{\parskip}{5mm}
+
+\title{Diabetes}
+\begin{document}
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
+
+
+\begin{titlepage}
+\begin{center}
+
+
+\textsc{\LARGE Universidad Nacional Autónoma de México}\\[0.2cm]
+\textsc{\LARGE Facultad de Estudios Superiores Acatlán}\\[1.5cm]
+
+
+% Title
+\HRule \\[0.4cm]
+{ \huge \bfseries Diabetes en la comunidad indígena Pima \\[0.4cm] }
+
+\HRule \\[1.5cm]
+
+% Author and supervisor
+\begin{minipage}{0.9\textwidth}
+\begin{center}
+\textsc{Juan Agustín Ambrosio Cordero}\\
+\textsc{César Eduardo Embriz Islas}\\
+\textsc{José Antonio García Ramírez}\\
+\textsc{Fernando Olvera Pérez}\\
+\textsc{César Armando Rojas Flores}\\
+
+\end{center}
+\end{minipage}
+
+\vfill
+
+% Bottom of the page
+{\large \today}
+
+\end{center}
+\end{titlepage}
+\end{document}
