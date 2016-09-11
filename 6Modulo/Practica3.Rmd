@@ -1,0 +1,112 @@
+---
+header-includes:
+- \usepackage[utf8]{inputenc}
+- \usepackage{verbatim}
+- \usepackage{graphicx}
+- \usepackage[spanish]{babel}
+- \usepackage{amsfonts}
+- \usepackage[table,xcdraw]{xcolor}
+- \usepackage{enumitem}
+- \usepackage{listings}
+- \usepackage{geometry}
+- \usepackage{setspace}
+output:
+  pdf_document:
+    latex_engine: xelatex
+
+---
+
+\begin{titlepage}
+\begin{center}
+\vspace*{0in}
+
+\begin{figure}[htb]
+\centering
+\includegraphics[ width = 8cm ]{images/fesa.png}
+\end{figure}
+\vspace*{0.25in}
+\large{Universidad Nacional Autónoma de México}\\
+\vspace*{0.5in}
+
+Facultad de Estudios Superiores Acatlán\\
+\vspace*{0.5in}
+
+Técnicas estadísticas y minería de datos\\
+\vspace*{0.5in}
+
+Módulo VI. Análisis de varianza, factorial y de correspondencias y técnicas de estadística multivariada \\
+\vspace*{0.5in}
+
+\begin{large}
+Práctica 3: \\
+\end{large}
+
+\vspace*{0.2in}
+\begin{Large}
+\textbf{Aspectos de valor en una evaluación para un puesto de trabajo} \\
+\end{Large}
+
+\vspace*{0.5in}
+Camacho Ortíz Yuly \\
+García Ramírez José Antonio \\
+Méndez Ramírez Kenny Yahir \\
+Vera Luna Maximiliano \\ 
+
+\vspace*{1in}
+Septiembre 2016 \\
+\vspace*{0.05in}
+\rule{80mm}{0.1mm}\\
+\vspace*{0.1in}
+
+\end{center}
+
+\end{titlepage}
+
+\tableofcontents{}
+
+\newpage
+
+# Objetivo
+
+Determinar los aspectos de interés que se contemplan en una evaluación para un puesto de trabajo a partir de variables cuantificables utilizando análisis factorial.
+
+# Problemática
+
+El ejercicio de establecer factores que definen la personalidad de un individuo, los cuales no son directamente observables y medibles, a partir de caracteristicas que sí se pueden contemplar es importante historicamente dentro del desarrollo de la teoria de analisis factorial pues fue la situación en la cual Fisher planteo el modelo.
+
+De manera análoga en esta practica partimos de las observaciones registradas de 48 individuos y 14 variables que de alguna manera miden aspectos de las personas que se pueden reflejar ya sea en un examen escrito (como la habilidad numerica) o bien por factores fisicos (por ejemplo la apariencia y confianza).
+
+\newpage
+# Marco teórico
+
+El Análisis Factorial es un método multivariante que pretende expresar $p$ variables observables como una combinación lineal de $m$ variables hipotéticas o latentes, denominadas factores. Tiene una formulación parecida al análisis de componentes principales, pero el modelo que relaciona variables y factores es diferente en AF. Si la matriz de correlaciones existe, las componentes principales también existen, mientras que el modelo factorial podría ser aceptado o no mediante un test estadístico.
+
+El AF obtiene e interpreta los factores comunes a partir de la matriz de correlaciones entre las variables.
+
+#Modelo multifactorial
+
+El modelo del análisis factorial de $m$ factores comunes considera que las $p$ variables observables $X_{1},...,X_{p}$ depende de $m$ variables latentes F_{1},...,F_{m} llamadas factores comunes, y $p$ factores únicos $U_{1},...,U_{p}$, de acuerdo con el modelo lineal:
+
+$$X_{1} = a_{11}F_{1} + ... + a_{1m}F_{m} + d_{1}U_{1}$$
+$$X_{2} = a_{21}F_{1} + ... + a_{2m}F_{m} + d_{2}U_{2}$$
+$$                      ...                           $$
+$$X_{p} = a_{p1}F_{1} + ... + a_{pm}F_{m} + d_{p}U_{p}$$
+
+Las hipótesis del modelo son:
+
+\begin{itemize}
+\item Los factores comunes y los factores únicos están incorrelacionados dos a dos.
+\item Los factores comunes están incorrelacionados con los factores únicos.
+\item Tanto los factores comunes como los factores únicos son variables reducidas (media cero y varianza uno).
+\end{itemize}
+
+#Matriz factorial
+
+Los coeficientes $a_{ij}$ son las saturaciones entre cada variable $X_{i}$ y el factor $F_{j}$. La matriz $p \times m$ que contiene estos coeficientes es la matriz factorial.
+
+Si indicamos por $\textbf{X} = (X_{1},...,X_{p})'$ el vector columna de las variables, y análogamente $\textbf{F} = (F_{1},...,F_{m})'$, $\textbf{U} = (U_{1},...,U_{p})'$, el modelo factorial en expresión matricial es 
+
+$$\textbf{X = AF + DU},$$
+
+donde $\textbf{D} = diag(d_{1},...,d_{p})$ es la matriz diagonal con las saturaciones entre variables y factores únicos. El AF tiene com principal objetivo encontrar e interpretar la matriz factorial $\textbf{A}$.
+
