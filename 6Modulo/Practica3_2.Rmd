@@ -10,10 +10,7 @@ header-includes:
 - \usepackage{listings}
 - \usepackage{geometry}
 - \usepackage{setspace}
-output:
-  pdf_document:
-    latex_engine: xelatex
-
+output: pdf_document
 ---
 
 \begin{titlepage}
@@ -74,7 +71,7 @@ Identificar las variables que integran distintos índices de desarrollo urbano m
 
 A pesar de que existen diversas variables economicas, demograficas y geograficas para describir a los paises y a las ciudades en su aspecto
  social estas variables por lo general se enfocan a cuantificar un sólo aspecto, por ejemplo la población de una ciudad o su extensión territorial.
- Los indices son variables que miden un factor, en el sentido del analisis factorial, cuyos pesos de las variables pueden ser ajustados por la teoría. 
+ Los indices son variables que miden un factor, en el sentido del analisis factorial, cuyos pesos de las variables pueden ser ajustados por la teoría respectiva.
 
  Los indicadores tienen el objetivo de representar la realidad de forma cuantitativa, sencilla y directa, para así poder elaborar un análisis claro.
 
@@ -127,6 +124,7 @@ $$\textbf{X = AF + DU},$$
 donde $\textbf{D} = diag(d_{1},...,d_{p})$ es la matriz diagonal con las saturaciones entre variables y factores únicos. El AF tiene com principal objetivo encontrar e interpretar la matriz factorial $\textbf{A}$.
 
 ```{r}
+setwd('/home/fou/Desktop/proyectos-diplomado-2016/6Modulo/')
 ciudades<-read.csv("ciudades.csv")
 ```
 
@@ -140,15 +138,15 @@ $\textbf{Area}$: Esta variable va de 21.4 a 1680, y tiene media de 409.4
 summary(ciudades$Area)
 ```
 
-$\textbf{Pop 1980}$: Se refiere a la poblaci?n en millones de las ciudades en 1980. La media se encuentra en 9150.  
+$\textbf{Pop 1980}$: Se refiere a la población en millones de las ciudades en 1980. La media se encuentra en 9150.  
 ```{r}
 summary(ciudades$Pop.1980)
 ```
-$\textbf{Pop 1990}$: Se refiere a la poblaci?n en millones de las ciudades en 1990. La media se encuentra en 11584.  
+$\textbf{Pop 1990}$: Se refiere a la población en millones de las ciudades en 1990. La media se encuentra en 11584.  
 ```{r}
 summary(ciudades$Pop.1990)
 ```
-$\textbf{Pop 2000}$: Se refiere a la poblaci?n en millones de las ciudades en 2000. La media se encuentra en 14544.  
+$\textbf{Pop 2000}$: Se refiere a la población en millones de las ciudades en 2000. La media se encuentra en 14544.  
 ```{r}
 summary(ciudades$Pop.2000)
 ```
@@ -160,7 +158,7 @@ $\textbf{Food}$
 ```{r}
 summary(ciudades$Growth)
 ```
-$\textbf{PersRoom}$: Es el n?mero de personas que en promedio comparten habitaci?n.
+$\textbf{PersRoom}$: Es el número de personas que en promedio comparten habitación.
 ```{r}
 summary(ciudades$PersRoom)
 ```
@@ -168,7 +166,7 @@ $\textbf{Water}$: Es el porcentaje de personas con acceso a agua potable en cada
 ```{r}
 summary(ciudades$Water)
 ```
-$\textbf{Elec}$: Es el porcentaje de personas con acceso a luz el?ctrica en cada ciudad.
+$\textbf{Elec}$: Es el porcentaje de personas con acceso a luz eléctrica en cada ciudad.
 ```{r}
 summary(ciudades$Elec)
 ```
@@ -180,4 +178,41 @@ $\textbf{Vehicles}$
 ```{r}
 summary(ciudades$Vehicles)
 ```
+
+
+
+# Análisis estadístico
+
+Después de múltiples intentos se decidió prescindir de la variable que registra la población de las ciudades. Uno de los modelo adecuados de análisis factorial para el conjunto de datos con el que estamos trabajando es el siguiente, utilizamos la transformación rígida varimax sobre los factores:
+
+
+```{r}
+library(psych)
+R <- cor(ciudades[,3:12])
+
+fa(R, nfactors = 3, rotate = 'varimax')
+```
+
+
+De las estimaciones de la matriz factorial, al factor MR3 lo interpretamos como el factor de confort de la ciudad pues refleja de manera positiva  las variables de los servicios como agua, luz , teléfono y vehículos  mientras que se relaciona negativamente con las variables que pueden ocasionar escasez de recursos como el crecimiento y el número de personas por habitación. El factor MR1 mide el factor de la población considerando el registro de los tres años y además los pesos de ellos en este factor son menores conforme más se aleja en el tiempo el registro. Y el factor MR2 mide directamente el crecimiento de la población.
+ 
+Por otro lado la unicidad de las variables con respecto a los factores es baja excepto para las variables que reflejan el servicio de teléfono y vehículos por lo que consideramos adecuado el modelo de factores (a pesar del tercer factor que cuyos pesos son poco heterogéneos )
+
+
+
+# Conclusiones
+
+
+En contraposición de los ejemplos en la literatura en donde se suelen definir factores políticos (derecha-izquierda) en este ejercicio se planteó un factor que considera la población y principalmente los servicios con los que cuenta una ciudad para poder definir un índice de desarrollo que integre diversos agentes de la vida urbana.
+
+
+
+
+
+
+ 
+# Bibliografía
+
+
+T. Hastie, R. Tibshirani and J. Friedman. Elements of Statistical Learning. Springer, second Edition 2012.
 
