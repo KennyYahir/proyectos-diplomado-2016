@@ -126,3 +126,71 @@ $$\textbf{X = AF + DU},$$
 
 donde $\textbf{D} = diag(d_{1},...,d_{p})$ es la matriz diagonal con las saturaciones entre variables y factores únicos. El AF tiene com principal objetivo encontrar e interpretar la matriz factorial $\textbf{A}$.
 
+# Análisis descriptivo
+
+```{r}
+calif <- read.csv("test_trabajo.csv")
+```
+
+# Análisis descriptivo de las variables
+
+Para el An?lisis Factorial contamos con 14 variables, las cuales corresponden a la calificaci?n de algunas actitudes/aptitudes de 48 personas. La calificaci?n que se puede obtener en cada uno de estos aspectos va de 0 a 10.
+
+$\textbf{Solicitud}$: Se refiere a la calificación que se le otorga a la presentación de la solicitud del candidato, la media de esta variable se encuentra en 6.
+
+```{r}
+summary(calif$SOLICITUD)
+```
+
+$\textbf{Apariencia}$ 
+```{r}
+summary(calif$APARIENC)
+```
+$\textbf{Habilidad}$: Capacidad de una persona para hacer una cosa correctamente y con facilidad. Los datos recabados tienen media 7.083 
+```{r}
+summary(calif$HABILIDAD)
+```
+$\textbf{Veracidad}$
+```{r}
+summary(calif$VERACIDAD)
+```
+$\textbf{Confianza}$: Se busca medir la confianza que transmiten los candidatos, en la muestra que se tiene se obtuvo una media de 6.938
+```{r}
+summary(calif$CONFIANZA)
+```
+$\textbf{Lucidez}$: En la claridad y rapidez mental para exponer o comprender algo se obtuvo una media de 6.312
+```{r}
+summary(calif$LUCIDEZ)
+```
+$\textbf{Honestidad}$: La mayor?a de las personas obtuvo una calificación alta en este aspecto, por lo que la media de la variable es de 8.042 
+```{r}
+summary(calif$HONESTID)
+```
+$\textbf{Ventas}$: La mayoría de las personas obtuvo un puntaje bajo en las habilidades de venta, a pesar de que algunos obtuvieron 10 la media se mantuvo en 4.792
+```{r}
+summary(calif$VENTAS)
+```
+$\textbf{Experiencia}$: Se obtuvo una media baja debido a que muchos participantes tenían experiencia casi nula.
+```{r}
+summary(calif$EXPERIEN)
+```
+$\textbf{Manejo}$
+```{r}
+summary(calif$MANEJO)
+```
+$\textbf{Ambición}$
+```{r}
+summary(calif$AMBICION)
+```
+$\textbf{Solidez}$
+```{r}
+summary(calif$SOLIDEZ)
+```
+$\textbf{Potencia}$
+```{r}
+summary(calif$POTENCIA)
+```
+$\textbf{Gana}$
+```{r}
+summary(calif$GANA)
+```
