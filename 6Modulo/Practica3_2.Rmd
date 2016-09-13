@@ -90,7 +90,7 @@ En este ejercicio partimos de los valores registrados para 21 ciudades en 11 var
  
  \newpage
 
-## Marco teórico
+# Marco teórico
 
 El Análisis factorial es un método multivariante que pretende expresar $p$ variables observables como una combinación lineal de $m$ variables hipotéticas o latentes, denominadas factores. Tiene una formulación parecida al análisis de componentes principales, pero el modelo que relaciona variables y factores es diferente en AF. Si la matriz de correlaciones existe, las componentes principales también existen, mientras que el modelo factorial podría ser aceptado o no mediante un test estadístico.
 
@@ -123,9 +123,9 @@ $$\textbf{X = AF + DU},$$
 
 donde $\textbf{D} = diag(d_{1},...,d_{p})$ es la matriz diagonal con las saturaciones entre variables y factores únicos. El AF tiene com principal objetivo encontrar e interpretar la matriz factorial $\textbf{A}$.
 
-```{r}
-setwd('/home/fou/Desktop/proyectos-diplomado-2016/6Modulo/')
-ciudades<-read.csv("ciudades.csv")
+```{r echo = FALSE}
+#setwd('/home/fou/Desktop/proyectos-diplomado-2016/6Modulo/')
+ciudades <- read.csv("ciudades.csv")
 ```
 
 # Análisis descriptivo de las variables
