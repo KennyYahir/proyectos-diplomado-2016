@@ -72,20 +72,36 @@ Determinar los aspectos de interés que se contemplan en una evaluación para un
 
 # Problemática
 
-El ejercicio de establecer factores que definen la personalidad de un individuo, los cuales no son directamente observables y medibles, a partir de caracteristicas que sí se pueden contemplar es importante historicamente dentro del desarrollo de la teoria de analisis factorial pues fue la situación en la cual Fisher planteo el modelo.
+ 
+El ejercicio de establecer aspectos de personalidad de un individuo, los cuales no son directamente observables y medibles, a partir de características que sí se pueden contemplar es importante históricamente dentro del desarrollo de la teoría de análisis factorial pues esa fue la situación en la que Fisher planteo el modelo.
 
-De manera análoga en esta practica partimos de las observaciones registradas de 48 individuos y 14 variables que de alguna manera miden aspectos de las personas que se pueden reflejar ya sea en un examen escrito (como la habilidad numerica) o bien por factores fisicos (por ejemplo la apariencia y confianza).
+Evaluar a un candidato a un puesto de trabajo puede ser determinando su posible desmpeño en distintos aspectos de su persona.
+Algunos de los aspectos mas importantes en un proceso de selección suelen ser, según reclutadores, los siguientes:
+
+* Pasión. Entusiasmo y las expresiones al hablar sobre trabajo previo desarrollado en el área de trabajo pueden dar una buena impresión 
+de la pasión o interés de la persona en el rubro en el que se desempeña. Suele ser el aspecto estrella ya que un candidato apasionado por su trabajo dará lo mejor de sí y buscará un crecimiento profesional beneficioso para la empresa y el individuo.
+
+* Actitud. La actitud se muestra a través de la forma en la que una persona se conduce. Es importante notar conductas nocivas para un equipo de trabajo, ya que a pesar de que un miembro pueder ser valioso por su conocimiento o desempeño, puede ser nocivo por su actitud.
+
+Es importante notar que la experiencia no es un aspecto determinante para conseguir un empleo, al igual que su currículum y su solicitud, pero lo es para conseguir una entrevista y ganar unos puntos extra en la evaluación.
+
+Otro aspecto es el nivel de salario que solicite el candidato, aunque un candidato idóneo para un puesto de trabajo pedirá mas o menos lo justo para el trabajo a desempeñar.
+
+
+De manera análoga en esta práctica partimos de las observaciones registradas de 48 individuos y 14 variables que de alguna  manera miden aspectos de las personas que se pueden reflejar ya sea en un exmanen escrito (como la habilidad numérica) o bien por factores físicos (por ejemplo la apariencia y confianza).
+
 
 \newpage
-# Marco teórico
 
-El Análisis Factorial es un método multivariante que pretende expresar $p$ variables observables como una combinación lineal de $m$ variables hipotéticas o latentes, denominadas factores. Tiene una formulación parecida al análisis de componentes principales, pero el modelo que relaciona variables y factores es diferente en AF. Si la matriz de correlaciones existe, las componentes principales también existen, mientras que el modelo factorial podría ser aceptado o no mediante un test estadístico.
+## Marco teórico
+
+El Análisis factorial es un método multivariante que pretende expresar $p$ variables observables como una combinación lineal de $m$ variables hipotéticas o latentes, denominadas factores. Tiene una formulación parecida al análisis de componentes principales, pero el modelo que relaciona variables y factores es diferente en AF. Si la matriz de correlaciones existe, las componentes principales también existen, mientras que el modelo factorial podría ser aceptado o no mediante un test estadístico.
 
 El AF obtiene e interpreta los factores comunes a partir de la matriz de correlaciones entre las variables.
 
-#Modelo multifactorial
+## Modelo multifactorial
 
-El modelo del análisis factorial de $m$ factores comunes considera que las $p$ variables observables $X_{1},...,X_{p}$ depende de $m$ variables latentes F_{1},...,F_{m} llamadas factores comunes, y $p$ factores únicos $U_{1},...,U_{p}$, de acuerdo con el modelo lineal:
+El modelo del análisis factorial de $m$ factores comunes considera que las $p$ variables observables $X_{1},...,X_{p}$ depende de $m$ variables latentes $F_{1},\ldots,F_{m}$ llamadas factores comunes, y $p$ factores únicos $U_{1},...,U_{p}$, de acuerdo con el modelo lineal:
 
 $$X_{1} = a_{11}F_{1} + ... + a_{1m}F_{m} + d_{1}U_{1}$$
 $$X_{2} = a_{21}F_{1} + ... + a_{2m}F_{m} + d_{2}U_{2}$$
@@ -100,7 +116,7 @@ Las hipótesis del modelo son:
 \item Tanto los factores comunes como los factores únicos son variables reducidas (media cero y varianza uno).
 \end{itemize}
 
-#Matriz factorial
+## Matriz factorial
 
 Los coeficientes $a_{ij}$ son las saturaciones entre cada variable $X_{i}$ y el factor $F_{j}$. La matriz $p \times m$ que contiene estos coeficientes es la matriz factorial.
 
