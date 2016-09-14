@@ -206,13 +206,8 @@ Por otro lado la unicidad de las variables con respecto a los factores es baja e
 En contraposición de los ejemplos en la literatura en donde se suelen definir factores políticos (derecha-izquierda) en este ejercicio se planteó un factor que considera la población y principalmente los servicios con los que cuenta una ciudad para poder definir un índice de desarrollo que integre diversos agentes de la vida urbana.
 
 
-
-
-
-
- 
 # Bibliografía
 
+T. Hastie, R. Tibshirani and J. Friedman. *Elements of Statistical Learning*. Springer, second Edition 2012.
 
-T. Hastie, R. Tibshirani and J. Friedman. Elements of Statistical Learning. Springer, second Edition 2012.
-
+C. M. Cuadras. *Nuevos métodos de Análisis multivariante*. CMC Editions. 2014.
