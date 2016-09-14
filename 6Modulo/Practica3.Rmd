@@ -192,3 +192,66 @@ $\textbf{Gana}$
 ```{r}
 summary(calif$GANA)
 ```
+
+# Análisis estadístico
+
+Decidimos usar la transformación "`oblimin`" para poder interpretar mejor nuestros resultados.
+
+Mostramos la matriz de cargas de los factores:
+
+```{r echo = FALSE}
+library(psych)
+library(knitr)
+
+datos.brut <- read.csv("test_trabajo.csv", dec = ",")
+#head(datos.brut)
+
+datos.lim <- datos.brut[-c(1:3, 9)]
+#head(datos.lim)
+
+model.1 <- fa(r = datos.lim, nfactors = 3, fm = "pa", rotate = "oblimin")
+model.1$loadings
+```
+
+
+Como resultado final encontramos 2 factores que pueden ser pensados como si la evaluación se dividiera en 2 aspectos:
+
+1. Empleos anteriores
+	
+	Esta parte es evaluada mediante las variables `VERACIDAD`, `HONESTIDAD` y `GANA`. Es decir, de alguna manera se
+	corrobora la información facilitada por el solicitante y se asigna un puntaje acorde a ello.
+  
+
+2. Prueba de aptitudes para el puesto
+
+	Las variables involucradas en este rubro son:
+	
+	+ `CONFIANZA`
+	+ `LUCIDEZ`
+	+ `VENTAS`
+	+ `MANEJO`
+	+ `AMBICION`
+	+ `SOLIDEZ`
+	+ `POTENCIA`
+	
+	aportando información del candidato acerca de su desempeño en tareas específicas.
+	
+Las variables descartadas por su poca variabilidad explicada por los factores(*comunalidad*) fueron:
+
+* `APARIENCIA` 
+Creemos que aunque es registrada puede causar ruido en la evaluación
+* `EXPERIENCIA`
+Un candidato con mucha experiencia puede no tener cualidades como trabajo en equipo.
+* `HABILIDAD`
+De la misma manera, con o mucha habilidad pudiera no ser suficiente para el puesto de trabajo.
+* `SOLICITUD`
+Se descarta porque al ser pensada como calificacion final engloba todos las características 	
+causando mucho ruido al modelo
+
+# Conclusiones
+
+En resumen se puede decir los siguiente:
+
+* **Pocos puntos evaluados**
+
+* **Subjetividad**
