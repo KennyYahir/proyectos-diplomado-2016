@@ -4,7 +4,7 @@ path2 <- "pima-indians-diabetes/pima-indians-diabetes.data"
 
 
 dat.brut <- read.table(paste0(path1, path2), header = F, sep = ",")
-colnames(dat.brut) <- c("n.times.pregnat", 
+colnames(dat.brut) <- c("n.times.pregnant", 
 						"plasma.glucose",
 						"diastolic.blood",
 						"triceps.skin.tickness",
