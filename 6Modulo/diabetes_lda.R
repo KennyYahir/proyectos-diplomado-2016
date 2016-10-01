@@ -1,6 +1,7 @@
 
 
 library(gexGA)
+library(data.table)
 
 ThemeBlank <- function(...){
 	theme_bw() + theme(panel.grid = element_blank(),
@@ -150,7 +151,7 @@ m3 <- lm(f3, data = datos.clean)
 m4 <- lm(f4, data = datos.clean)
 m5 <- lm(f5, data = datos.clean)
 
-summary(m5)
+summary(m2)
 
 resps <- c('serum.insulin', 'triceps.skin.tickness',
 		   'bmi', 'diastolic.blood', 'plasma.glucose')
@@ -194,3 +195,53 @@ write.table(datos.new, file = 'diabetes_data_no_nas.csv', sep = ",",
 
 hists <- GetPlots(datos.new)
 Multiplot(plotlist = hists, cols = 3)
+
+###############################################################################
+## Pruebas con LDA
+
+
+datos <- read.csv("diabetes_data_no_nas.csv")
+head(datos)
+
+
+pre.data <- as.data.frame(cbind(scale(as.matrix(datos[, -9])), 
+								  'class' = datos[, 'class']))
+head(pre.data)
+
+hists <- GetPlots(pre.data)
+Multiplot(plotlist = hists, cols = 3)
+
+
+library(MASS)
+
+var.exp <- names(datos)[!(names(datos) %in% c('bmi', 'diastolic.blood'))]
+all.data <- pre.data
+
+set.seed(123)
+idxs <- sample(1:nrow(all.data), 0.7*nrow(all.data))
+train.data <- all.data[idxs, ]
+test.data <- all.data[-idxs, ]
+
+train.data$class <- as.factor(train.data$class)
+head(train.data)
+
+var.exp <- c('n.times.pregnant', 'plasma.glucose', 'diastolic.blood')
+lda.model <- lda(formula = BuildFormula('class', var.exp), data = train.data)
+
+pred <- predict(lda.model, newdata = test.data)
+
+head(pred$class)
+
+
+spt <- table(pred$class, test.data$class)
+caret::confusionMatrix(spt)
+
+
+dat.pt <- data.frame('y' = 1, 'x' = pred$x[, 1], 'class' = test.data$class)
+head(dat.pt)
+
+pt <- ggplot(dat.pt, aes_string(x = 'x', y = 'y', color = 'class'))
+pt <- pt + geom_point(size = 3)
+pt <- pt + theme_bw()
+
+pt
